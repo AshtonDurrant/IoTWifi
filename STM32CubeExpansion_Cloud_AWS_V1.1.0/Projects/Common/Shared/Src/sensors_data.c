@@ -143,6 +143,10 @@ int PrepareMqttPayload(char * PayloadBuffer, int PayloadSize, char * deviceID)
   char * Buff = PayloadBuffer;
   int BuffSize = PayloadSize;
   int snprintfreturn = 0;
+  /*Random number generation by Ashton Durrant */
+  int random_number = rand();
+  /*End random number generation by Ashton Durrant */
+
 
   TEMPERATURE_Value = BSP_TSENSOR_ReadTemp();
   HUMIDITY_Value = BSP_HSENSOR_ReadHumidity();
@@ -157,12 +161,13 @@ int PrepareMqttPayload(char * PayloadBuffer, int PayloadSize, char * deviceID)
              "\"temperature\": %.2f, \"humidity\": %.2f, \"pressure\": %.2f, \"proximity\": %d, "
              "\"acc_x\": %d, \"acc_y\": %d, \"acc_z\": %d, "
              "\"gyr_x\": %.0f, \"gyr_y\": %.0f, \"gyr_z\": %.0f, "
-             "\"mag_x\": %d, \"mag_y\": %d, \"mag_z\": %d"
+             "\"mag_x\": %d, \"mag_y\": %d, \"mag_z\": %d, "
+             "\"Random Number\": %d",
                "}}",
              TEMPERATURE_Value, HUMIDITY_Value, PRESSURE_Value, PROXIMITY_Value,
              ACC_Value[0], ACC_Value[1], ACC_Value[2],
              GYR_Value[0], GYR_Value[1], GYR_Value[2],
-             MAG_Value[0], MAG_Value[1], MAG_Value[2] );
+             MAG_Value[0], MAG_Value[1], MAG_Value[2], random_number);
   
  #else
   if (deviceID != NULL)
@@ -171,13 +176,14 @@ int PrepareMqttPayload(char * PayloadBuffer, int PayloadSize, char * deviceID)
              "\"temperature\": %.2f, \"humidity\": %.2f, \"pressure\": %.2f, \"proximity\": %d, "
              "\"acc_x\": %d, \"acc_y\": %d, \"acc_z\": %d, "
              "\"gyr_x\": %.0f, \"gyr_y\": %.0f, \"gyr_z\": %.0f, "
-             "\"mag_x\": %d, \"mag_y\": %d, \"mag_z\": %d"
+             "\"mag_x\": %d, \"mag_y\": %d, \"mag_z\": %d "
+             "\"Random number\": %d "
              "}",
              deviceID,
              TEMPERATURE_Value, HUMIDITY_Value, PRESSURE_Value, PROXIMITY_Value,
              ACC_Value[0], ACC_Value[1], ACC_Value[2],
              GYR_Value[0], GYR_Value[1], GYR_Value[2],
-             MAG_Value[0], MAG_Value[1], MAG_Value[2] );
+             MAG_Value[0], MAG_Value[1], MAG_Value[2], random_number);
   }
   else
   {
@@ -185,12 +191,12 @@ int PrepareMqttPayload(char * PayloadBuffer, int PayloadSize, char * deviceID)
            "   \"temperature\": %.2f,\n   \"humidity\": %.2f,\n   \"pressure\": %.2f,\n   \"proximity\": %d,\n"
            "   \"acc_x\": %d, \"acc_y\": %d, \"acc_z\": %d,\n"
            "   \"gyr_x\": %.0f, \"gyr_y\": %.0f, \"gyr_z\": %.0f,\n"
-           "   \"mag_x\": %d, \"mag_y\": %d, \"mag_z\": %d\n"
+           "   \"mag_x\": %d, \"mag_y\": %d, \"mag_z\": %d\n \" Random Number\": %d\n"
            "  }\n }\n}",
            TEMPERATURE_Value, HUMIDITY_Value, PRESSURE_Value, PROXIMITY_Value,
            ACC_Value[0], ACC_Value[1], ACC_Value[2],
            GYR_Value[0], GYR_Value[1], GYR_Value[2],
-           MAG_Value[0], MAG_Value[1], MAG_Value[2] );
+           MAG_Value[0], MAG_Value[1], MAG_Value[2], random_number );
   }
  #endif
   /* Check total size to be less than buffer size

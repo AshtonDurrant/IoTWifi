@@ -1,4 +1,4 @@
-/**This is my comment.
+/**
   ******************************************************************************
   * @file    main.c
   * @author  MCD Application Team
