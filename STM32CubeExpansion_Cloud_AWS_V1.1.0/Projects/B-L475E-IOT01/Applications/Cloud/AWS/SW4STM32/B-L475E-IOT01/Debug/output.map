@@ -25667,7 +25667,7 @@ OUTPUT(B-L475E-IOT01.elf elf32-littlearm)
  .debug_macro   0x0003f5dd      0x34f Middlewares/Third_Party/MbedTLS/x509_crl.o
  .debug_macro   0x0003f92c      0x373 Middlewares/Third_Party/MbedTLS/x509_crt.o
 
-.debug_line     0x00000000    0x4e839
+.debug_line     0x00000000    0x4e884
  .debug_line    0x00000000      0xaf5 Application/AWS/aws_network_st_wrapper.o
  .debug_line    0x00000af5     0x1492 Application/AWS/aws_subscribe_publish_sensor_values.o
  .debug_line    0x00001f87     0x1279 Application/AWS/aws_timer.o
@@ -25686,93 +25686,93 @@ OUTPUT(B-L475E-IOT01.elf elf32-littlearm)
  .debug_line    0x0001066b     0x11eb Application/Common/wifi_net.o
  .debug_line    0x00011856       0xf7 Application/SW4STM32/startup_stm32l475xx.o
  .debug_line    0x0001194d      0x626 Application/SW4STM32/syscalls.o
- .debug_line    0x00011f73     0x1248 Application/User/main.o
- .debug_line    0x000131bb     0x1158 Application/User/stm32l4xx_hal_msp.o
- .debug_line    0x00014313      0xa40 Application/User/stm32l4xx_it.o
- .debug_line    0x00014d53      0xc02 Application/User/vl53l0x_platform.o
- .debug_line    0x00015955      0xc22 Application/User/vl53l0x_proximity.o
- .debug_line    0x00016577      0xb3c Application/Wifi/es_wifi_io.o
- .debug_line    0x000170b3      0xc9d Application/Wifi/wifi.o
- .debug_line    0x00017d50      0xcb1 Drivers/BSP/B-L475E-IOT01/stm32l475e_iot01.o
- .debug_line    0x00018a01      0xb38 Drivers/BSP/B-L475E-IOT01/stm32l475e_iot01_accelero.o
- .debug_line    0x00019539      0xb30 Drivers/BSP/B-L475E-IOT01/stm32l475e_iot01_gyro.o
- .debug_line    0x0001a069      0xb19 Drivers/BSP/B-L475E-IOT01/stm32l475e_iot01_hsensor.o
- .debug_line    0x0001ab82      0xb2c Drivers/BSP/B-L475E-IOT01/stm32l475e_iot01_magneto.o
- .debug_line    0x0001b6ae      0xb1b Drivers/BSP/B-L475E-IOT01/stm32l475e_iot01_psensor.o
- .debug_line    0x0001c1c9      0xb00 Drivers/BSP/B-L475E-IOT01/stm32l475e_iot01_tsensor.o
- .debug_line    0x0001ccc9      0x44b Drivers/BSP/Components/HTS221/hts221.o
- .debug_line    0x0001d114      0x436 Drivers/BSP/Components/LIS3MDL/lis3mdl.o
- .debug_line    0x0001d54a      0x44a Drivers/BSP/Components/LPS22HB/lps22hb.o
- .debug_line    0x0001d994      0x4aa Drivers/BSP/Components/LSM6DSL/lsm6dsl.o
- .debug_line    0x0001de3e     0x1702 Drivers/BSP/Components/vl53l0x/vl53l0x_api.o
- .debug_line    0x0001f540      0xf66 Drivers/BSP/Components/vl53l0x/vl53l0x_api_calibration.o
- .debug_line    0x000204a6     0x1261 Drivers/BSP/Components/vl53l0x/vl53l0x_api_core.o
- .debug_line    0x00021707      0xbe9 Drivers/BSP/Components/vl53l0x/vl53l0x_api_strings.o
- .debug_line    0x000222f0      0xa9f Drivers/BSP/es_wifi.o
- .debug_line    0x00022d8f      0xa1e Drivers/CMSIS/system_stm32l4xx.o
- .debug_line    0x000237ad      0xbe5 Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal.o
- .debug_line    0x00024392      0xba4 Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_cortex.o
- .debug_line    0x00024f36      0xc74 Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_flash.o
- .debug_line    0x00025baa      0xc68 Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_flash_ex.o
- .debug_line    0x00026812      0xb78 Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_gpio.o
- .debug_line    0x0002738a     0x1c97 Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_i2c.o
- .debug_line    0x00029021      0xae6 Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_i2c_ex.o
- .debug_line    0x00029b07      0xd48 Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_pwr_ex.o
- .debug_line    0x0002a84f      0xce4 Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_rcc.o
- .debug_line    0x0002b533      0xe6a Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_rcc_ex.o
- .debug_line    0x0002c39d      0xb2b Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_rng.o
- .debug_line    0x0002cec8      0xda2 Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_rtc.o
- .debug_line    0x0002dc6a     0x15dd Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_spi.o
- .debug_line    0x0002f247      0x9cd Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_spi_ex.o
- .debug_line    0x0002fc14     0x14ea Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_uart.o
- .debug_line    0x000310fe      0xa7c Middlewares/Third_Party/AWS/aws_iot_mqtt_client.o
- .debug_line    0x00031b7a      0xb96 Middlewares/Third_Party/AWS/aws_iot_mqtt_client_common_internal.o
- .debug_line    0x00032710      0xa97 Middlewares/Third_Party/AWS/aws_iot_mqtt_client_connect.o
- .debug_line    0x000331a7      0xaaa Middlewares/Third_Party/AWS/aws_iot_mqtt_client_publish.o
- .debug_line    0x00033c51      0xa63 Middlewares/Third_Party/AWS/aws_iot_mqtt_client_subscribe.o
- .debug_line    0x000346b4      0xa17 Middlewares/Third_Party/AWS/aws_iot_mqtt_client_yield.o
- .debug_line    0x000350cb      0xb06 Middlewares/Third_Party/MbedTLS/aes.o
- .debug_line    0x00035bd1      0x855 Middlewares/Third_Party/MbedTLS/asn1parse.o
- .debug_line    0x00036426      0x905 Middlewares/Third_Party/MbedTLS/asn1write.o
- .debug_line    0x00036d2b      0x7ef Middlewares/Third_Party/MbedTLS/base64.o
- .debug_line    0x0003751a     0x1396 Middlewares/Third_Party/MbedTLS/bignum.o
- .debug_line    0x000388b0      0x82f Middlewares/Third_Party/MbedTLS/ccm.o
- .debug_line    0x000390df      0x959 Middlewares/Third_Party/MbedTLS/cipher.o
- .debug_line    0x00039a38      0x853 Middlewares/Third_Party/MbedTLS/cipher_wrap.o
- .debug_line    0x0003a28b      0x907 Middlewares/Third_Party/MbedTLS/ctr_drbg.o
- .debug_line    0x0003ab92      0x919 Middlewares/Third_Party/MbedTLS/debug.o
- .debug_line    0x0003b4ab      0xa2e Middlewares/Third_Party/MbedTLS/des.o
- .debug_line    0x0003bed9      0x6d0 Middlewares/Third_Party/MbedTLS/ecdh.o
- .debug_line    0x0003c5a9      0x762 Middlewares/Third_Party/MbedTLS/ecdsa.o
- .debug_line    0x0003cd0b     0x1472 Middlewares/Third_Party/MbedTLS/ecp.o
- .debug_line    0x0003e17d      0xad8 Middlewares/Third_Party/MbedTLS/ecp_curves.o
- .debug_line    0x0003ec55      0x885 Middlewares/Third_Party/MbedTLS/entropy.o
- .debug_line    0x0003f4da      0x9e8 Middlewares/Third_Party/MbedTLS/gcm.o
- .debug_line    0x0003fec2      0x85a Middlewares/Third_Party/MbedTLS/hmac_drbg.o
- .debug_line    0x0004071c      0x8cf Middlewares/Third_Party/MbedTLS/md.o
- .debug_line    0x00040feb      0x800 Middlewares/Third_Party/MbedTLS/md5.o
- .debug_line    0x000417eb      0x98d Middlewares/Third_Party/MbedTLS/md_wrap.o
- .debug_line    0x00042178      0x8cf Middlewares/Third_Party/MbedTLS/oid.o
- .debug_line    0x00042a47      0x756 Middlewares/Third_Party/MbedTLS/pem.o
- .debug_line    0x0004319d      0x74c Middlewares/Third_Party/MbedTLS/pk.o
- .debug_line    0x000438e9      0x8ba Middlewares/Third_Party/MbedTLS/pk_wrap.o
- .debug_line    0x000441a3      0x717 Middlewares/Third_Party/MbedTLS/pkcs12.o
- .debug_line    0x000448ba      0x7fe Middlewares/Third_Party/MbedTLS/pkcs5.o
- .debug_line    0x000450b8      0xa38 Middlewares/Third_Party/MbedTLS/pkparse.o
- .debug_line    0x00045af0      0x642 Middlewares/Third_Party/MbedTLS/platform.o
- .debug_line    0x00046132      0x970 Middlewares/Third_Party/MbedTLS/ripemd160.o
- .debug_line    0x00046aa2      0xe4f Middlewares/Third_Party/MbedTLS/rsa.o
- .debug_line    0x000478f1      0x972 Middlewares/Third_Party/MbedTLS/sha1.o
- .debug_line    0x00048263      0x92d Middlewares/Third_Party/MbedTLS/sha256.o
- .debug_line    0x00048b90      0x8d7 Middlewares/Third_Party/MbedTLS/sha512.o
- .debug_line    0x00049467      0x7d1 Middlewares/Third_Party/MbedTLS/ssl_ciphersuites.o
- .debug_line    0x00049c38      0xe02 Middlewares/Third_Party/MbedTLS/ssl_cli.o
- .debug_line    0x0004aa3a     0x18c1 Middlewares/Third_Party/MbedTLS/ssl_tls.o
- .debug_line    0x0004c2fb      0xb29 Middlewares/Third_Party/MbedTLS/x509.o
- .debug_line    0x0004ce24      0x9f0 Middlewares/Third_Party/MbedTLS/x509_crl.o
- .debug_line    0x0004d814     0x1025 Middlewares/Third_Party/MbedTLS/x509_crt.o
+ .debug_line    0x00011f73     0x1293 Application/User/main.o
+ .debug_line    0x00013206     0x1158 Application/User/stm32l4xx_hal_msp.o
+ .debug_line    0x0001435e      0xa40 Application/User/stm32l4xx_it.o
+ .debug_line    0x00014d9e      0xc02 Application/User/vl53l0x_platform.o
+ .debug_line    0x000159a0      0xc22 Application/User/vl53l0x_proximity.o
+ .debug_line    0x000165c2      0xb3c Application/Wifi/es_wifi_io.o
+ .debug_line    0x000170fe      0xc9d Application/Wifi/wifi.o
+ .debug_line    0x00017d9b      0xcb1 Drivers/BSP/B-L475E-IOT01/stm32l475e_iot01.o
+ .debug_line    0x00018a4c      0xb38 Drivers/BSP/B-L475E-IOT01/stm32l475e_iot01_accelero.o
+ .debug_line    0x00019584      0xb30 Drivers/BSP/B-L475E-IOT01/stm32l475e_iot01_gyro.o
+ .debug_line    0x0001a0b4      0xb19 Drivers/BSP/B-L475E-IOT01/stm32l475e_iot01_hsensor.o
+ .debug_line    0x0001abcd      0xb2c Drivers/BSP/B-L475E-IOT01/stm32l475e_iot01_magneto.o
+ .debug_line    0x0001b6f9      0xb1b Drivers/BSP/B-L475E-IOT01/stm32l475e_iot01_psensor.o
+ .debug_line    0x0001c214      0xb00 Drivers/BSP/B-L475E-IOT01/stm32l475e_iot01_tsensor.o
+ .debug_line    0x0001cd14      0x44b Drivers/BSP/Components/HTS221/hts221.o
+ .debug_line    0x0001d15f      0x436 Drivers/BSP/Components/LIS3MDL/lis3mdl.o
+ .debug_line    0x0001d595      0x44a Drivers/BSP/Components/LPS22HB/lps22hb.o
+ .debug_line    0x0001d9df      0x4aa Drivers/BSP/Components/LSM6DSL/lsm6dsl.o
+ .debug_line    0x0001de89     0x1702 Drivers/BSP/Components/vl53l0x/vl53l0x_api.o
+ .debug_line    0x0001f58b      0xf66 Drivers/BSP/Components/vl53l0x/vl53l0x_api_calibration.o
+ .debug_line    0x000204f1     0x1261 Drivers/BSP/Components/vl53l0x/vl53l0x_api_core.o
+ .debug_line    0x00021752      0xbe9 Drivers/BSP/Components/vl53l0x/vl53l0x_api_strings.o
+ .debug_line    0x0002233b      0xa9f Drivers/BSP/es_wifi.o
+ .debug_line    0x00022dda      0xa1e Drivers/CMSIS/system_stm32l4xx.o
+ .debug_line    0x000237f8      0xbe5 Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal.o
+ .debug_line    0x000243dd      0xba4 Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_cortex.o
+ .debug_line    0x00024f81      0xc74 Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_flash.o
+ .debug_line    0x00025bf5      0xc68 Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_flash_ex.o
+ .debug_line    0x0002685d      0xb78 Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_gpio.o
+ .debug_line    0x000273d5     0x1c97 Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_i2c.o
+ .debug_line    0x0002906c      0xae6 Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_i2c_ex.o
+ .debug_line    0x00029b52      0xd48 Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_pwr_ex.o
+ .debug_line    0x0002a89a      0xce4 Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_rcc.o
+ .debug_line    0x0002b57e      0xe6a Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_rcc_ex.o
+ .debug_line    0x0002c3e8      0xb2b Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_rng.o
+ .debug_line    0x0002cf13      0xda2 Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_rtc.o
+ .debug_line    0x0002dcb5     0x15dd Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_spi.o
+ .debug_line    0x0002f292      0x9cd Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_spi_ex.o
+ .debug_line    0x0002fc5f     0x14ea Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_uart.o
+ .debug_line    0x00031149      0xa7c Middlewares/Third_Party/AWS/aws_iot_mqtt_client.o
+ .debug_line    0x00031bc5      0xb96 Middlewares/Third_Party/AWS/aws_iot_mqtt_client_common_internal.o
+ .debug_line    0x0003275b      0xa97 Middlewares/Third_Party/AWS/aws_iot_mqtt_client_connect.o
+ .debug_line    0x000331f2      0xaaa Middlewares/Third_Party/AWS/aws_iot_mqtt_client_publish.o
+ .debug_line    0x00033c9c      0xa63 Middlewares/Third_Party/AWS/aws_iot_mqtt_client_subscribe.o
+ .debug_line    0x000346ff      0xa17 Middlewares/Third_Party/AWS/aws_iot_mqtt_client_yield.o
+ .debug_line    0x00035116      0xb06 Middlewares/Third_Party/MbedTLS/aes.o
+ .debug_line    0x00035c1c      0x855 Middlewares/Third_Party/MbedTLS/asn1parse.o
+ .debug_line    0x00036471      0x905 Middlewares/Third_Party/MbedTLS/asn1write.o
+ .debug_line    0x00036d76      0x7ef Middlewares/Third_Party/MbedTLS/base64.o
+ .debug_line    0x00037565     0x1396 Middlewares/Third_Party/MbedTLS/bignum.o
+ .debug_line    0x000388fb      0x82f Middlewares/Third_Party/MbedTLS/ccm.o
+ .debug_line    0x0003912a      0x959 Middlewares/Third_Party/MbedTLS/cipher.o
+ .debug_line    0x00039a83      0x853 Middlewares/Third_Party/MbedTLS/cipher_wrap.o
+ .debug_line    0x0003a2d6      0x907 Middlewares/Third_Party/MbedTLS/ctr_drbg.o
+ .debug_line    0x0003abdd      0x919 Middlewares/Third_Party/MbedTLS/debug.o
+ .debug_line    0x0003b4f6      0xa2e Middlewares/Third_Party/MbedTLS/des.o
+ .debug_line    0x0003bf24      0x6d0 Middlewares/Third_Party/MbedTLS/ecdh.o
+ .debug_line    0x0003c5f4      0x762 Middlewares/Third_Party/MbedTLS/ecdsa.o
+ .debug_line    0x0003cd56     0x1472 Middlewares/Third_Party/MbedTLS/ecp.o
+ .debug_line    0x0003e1c8      0xad8 Middlewares/Third_Party/MbedTLS/ecp_curves.o
+ .debug_line    0x0003eca0      0x885 Middlewares/Third_Party/MbedTLS/entropy.o
+ .debug_line    0x0003f525      0x9e8 Middlewares/Third_Party/MbedTLS/gcm.o
+ .debug_line    0x0003ff0d      0x85a Middlewares/Third_Party/MbedTLS/hmac_drbg.o
+ .debug_line    0x00040767      0x8cf Middlewares/Third_Party/MbedTLS/md.o
+ .debug_line    0x00041036      0x800 Middlewares/Third_Party/MbedTLS/md5.o
+ .debug_line    0x00041836      0x98d Middlewares/Third_Party/MbedTLS/md_wrap.o
+ .debug_line    0x000421c3      0x8cf Middlewares/Third_Party/MbedTLS/oid.o
+ .debug_line    0x00042a92      0x756 Middlewares/Third_Party/MbedTLS/pem.o
+ .debug_line    0x000431e8      0x74c Middlewares/Third_Party/MbedTLS/pk.o
+ .debug_line    0x00043934      0x8ba Middlewares/Third_Party/MbedTLS/pk_wrap.o
+ .debug_line    0x000441ee      0x717 Middlewares/Third_Party/MbedTLS/pkcs12.o
+ .debug_line    0x00044905      0x7fe Middlewares/Third_Party/MbedTLS/pkcs5.o
+ .debug_line    0x00045103      0xa38 Middlewares/Third_Party/MbedTLS/pkparse.o
+ .debug_line    0x00045b3b      0x642 Middlewares/Third_Party/MbedTLS/platform.o
+ .debug_line    0x0004617d      0x970 Middlewares/Third_Party/MbedTLS/ripemd160.o
+ .debug_line    0x00046aed      0xe4f Middlewares/Third_Party/MbedTLS/rsa.o
+ .debug_line    0x0004793c      0x972 Middlewares/Third_Party/MbedTLS/sha1.o
+ .debug_line    0x000482ae      0x92d Middlewares/Third_Party/MbedTLS/sha256.o
+ .debug_line    0x00048bdb      0x8d7 Middlewares/Third_Party/MbedTLS/sha512.o
+ .debug_line    0x000494b2      0x7d1 Middlewares/Third_Party/MbedTLS/ssl_ciphersuites.o
+ .debug_line    0x00049c83      0xe02 Middlewares/Third_Party/MbedTLS/ssl_cli.o
+ .debug_line    0x0004aa85     0x18c1 Middlewares/Third_Party/MbedTLS/ssl_tls.o
+ .debug_line    0x0004c346      0xb29 Middlewares/Third_Party/MbedTLS/x509.o
+ .debug_line    0x0004ce6f      0x9f0 Middlewares/Third_Party/MbedTLS/x509_crl.o
+ .debug_line    0x0004d85f     0x1025 Middlewares/Third_Party/MbedTLS/x509_crt.o
 
-.debug_str      0x00000000   0x121b7e
+.debug_str      0x00000000   0x121c1f
  .debug_str     0x00000000    0x10420 Application/AWS/aws_network_st_wrapper.o
                               0x109c9 (size before relaxing)
  .debug_str     0x00010420    0xef21e Application/AWS/aws_subscribe_publish_sensor_values.o
@@ -25807,175 +25807,175 @@ OUTPUT(B-L475E-IOT01.elf elf32-littlearm)
                               0xf7b2a (size before relaxing)
  .debug_str     0x00101dd9     0x1061 Application/SW4STM32/syscalls.o
                                0x7ef2 (size before relaxing)
- .debug_str     0x00102e3a      0x7a3 Application/User/main.o
-                              0xf7c81 (size before relaxing)
- .debug_str     0x001035dd      0x47c Application/User/stm32l4xx_hal_msp.o
+ .debug_str     0x00102e3a      0x844 Application/User/main.o
+                              0xf7c8b (size before relaxing)
+ .debug_str     0x0010367e      0x47c Application/User/stm32l4xx_hal_msp.o
                               0xf7879 (size before relaxing)
- .debug_str     0x00103a59      0x180 Application/User/stm32l4xx_it.o
+ .debug_str     0x00103afa      0x180 Application/User/stm32l4xx_it.o
                               0xf0bc9 (size before relaxing)
- .debug_str     0x00103bd9     0x4260 Application/User/vl53l0x_platform.o
+ .debug_str     0x00103c7a     0x4260 Application/User/vl53l0x_platform.o
                               0xf50ef (size before relaxing)
- .debug_str     0x00107e39      0x369 Application/User/vl53l0x_proximity.o
+ .debug_str     0x00107eda      0x369 Application/User/vl53l0x_proximity.o
                               0xf606a (size before relaxing)
- .debug_str     0x001081a2      0x2cb Application/Wifi/es_wifi_io.o
+ .debug_str     0x00108243      0x2cb Application/Wifi/es_wifi_io.o
                               0xf1423 (size before relaxing)
- .debug_str     0x0010846d      0x79a Application/Wifi/wifi.o
+ .debug_str     0x0010850e      0x79a Application/Wifi/wifi.o
                               0xf19b1 (size before relaxing)
- .debug_str     0x00108c07      0xa01 Drivers/BSP/B-L475E-IOT01/stm32l475e_iot01.o
+ .debug_str     0x00108ca8      0xa01 Drivers/BSP/B-L475E-IOT01/stm32l475e_iot01.o
                               0xf2c75 (size before relaxing)
- .debug_str     0x00109608      0x184 Drivers/BSP/B-L475E-IOT01/stm32l475e_iot01_accelero.o
+ .debug_str     0x001096a9      0x184 Drivers/BSP/B-L475E-IOT01/stm32l475e_iot01_accelero.o
                               0xf3079 (size before relaxing)
- .debug_str     0x0010978c       0xd0 Drivers/BSP/B-L475E-IOT01/stm32l475e_iot01_gyro.o
+ .debug_str     0x0010982d       0xd0 Drivers/BSP/B-L475E-IOT01/stm32l475e_iot01_gyro.o
                               0xf3013 (size before relaxing)
- .debug_str     0x0010985c       0xa0 Drivers/BSP/B-L475E-IOT01/stm32l475e_iot01_hsensor.o
+ .debug_str     0x001098fd       0xa0 Drivers/BSP/B-L475E-IOT01/stm32l475e_iot01_hsensor.o
                               0xf1f96 (size before relaxing)
- .debug_str     0x001098fc       0xe3 Drivers/BSP/B-L475E-IOT01/stm32l475e_iot01_magneto.o
+ .debug_str     0x0010999d       0xe3 Drivers/BSP/B-L475E-IOT01/stm32l475e_iot01_magneto.o
                               0xf2398 (size before relaxing)
- .debug_str     0x001099df       0xa0 Drivers/BSP/B-L475E-IOT01/stm32l475e_iot01_psensor.o
+ .debug_str     0x00109a80       0xa0 Drivers/BSP/B-L475E-IOT01/stm32l475e_iot01_psensor.o
                               0xf25b8 (size before relaxing)
- .debug_str     0x00109a7f       0x8d Drivers/BSP/B-L475E-IOT01/stm32l475e_iot01_tsensor.o
+ .debug_str     0x00109b20       0x8d Drivers/BSP/B-L475E-IOT01/stm32l475e_iot01_tsensor.o
                               0xf1f8e (size before relaxing)
- .debug_str     0x00109b0c      0x141 Drivers/BSP/Components/HTS221/hts221.o
+ .debug_str     0x00109bad      0x141 Drivers/BSP/Components/HTS221/hts221.o
                                0x3e1a (size before relaxing)
- .debug_str     0x00109c4d       0xff Drivers/BSP/Components/LIS3MDL/lis3mdl.o
+ .debug_str     0x00109cee       0xff Drivers/BSP/Components/LIS3MDL/lis3mdl.o
                                0x415d (size before relaxing)
- .debug_str     0x00109d4c       0xee Drivers/BSP/Components/LPS22HB/lps22hb.o
+ .debug_str     0x00109ded       0xee Drivers/BSP/Components/LPS22HB/lps22hb.o
                                0x43ee (size before relaxing)
- .debug_str     0x00109e3a      0x143 Drivers/BSP/Components/LSM6DSL/lsm6dsl.o
+ .debug_str     0x00109edb      0x143 Drivers/BSP/Components/LSM6DSL/lsm6dsl.o
                                0x4e03 (size before relaxing)
- .debug_str     0x00109f7d     0x17d4 Drivers/BSP/Components/vl53l0x/vl53l0x_api.o
+ .debug_str     0x0010a01e     0x17d4 Drivers/BSP/Components/vl53l0x/vl53l0x_api.o
                               0xf6bcc (size before relaxing)
- .debug_str     0x0010b751      0x69d Drivers/BSP/Components/vl53l0x/vl53l0x_api_calibration.o
+ .debug_str     0x0010b7f2      0x69d Drivers/BSP/Components/vl53l0x/vl53l0x_api_calibration.o
                               0xf5c70 (size before relaxing)
- .debug_str     0x0010bdee      0xbf0 Drivers/BSP/Components/vl53l0x/vl53l0x_api_core.o
+ .debug_str     0x0010be8f      0xbf0 Drivers/BSP/Components/vl53l0x/vl53l0x_api_core.o
                               0xf6210 (size before relaxing)
- .debug_str     0x0010c9de       0xa5 Drivers/BSP/Components/vl53l0x/vl53l0x_api_strings.o
+ .debug_str     0x0010ca7f       0xa5 Drivers/BSP/Components/vl53l0x/vl53l0x_api_strings.o
                               0xf53d3 (size before relaxing)
- .debug_str     0x0010ca83      0x4d0 Drivers/BSP/es_wifi.o
+ .debug_str     0x0010cb24      0x4d0 Drivers/BSP/es_wifi.o
                                0x8448 (size before relaxing)
- .debug_str     0x0010cf53      0x13f Drivers/CMSIS/system_stm32l4xx.o
+ .debug_str     0x0010cff4      0x13f Drivers/CMSIS/system_stm32l4xx.o
                               0xf0cc3 (size before relaxing)
- .debug_str     0x0010d092      0x5b8 Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal.o
+ .debug_str     0x0010d133      0x5b8 Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal.o
                               0xf17b5 (size before relaxing)
- .debug_str     0x0010d64a      0x31d Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_cortex.o
+ .debug_str     0x0010d6eb      0x31d Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_cortex.o
                               0xf149d (size before relaxing)
- .debug_str     0x0010d967      0x346 Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_flash.o
+ .debug_str     0x0010da08      0x346 Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_flash.o
                               0xf0f3e (size before relaxing)
- .debug_str     0x0010dcad      0x1b6 Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_flash_ex.o
+ .debug_str     0x0010dd4e      0x1b6 Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_flash_ex.o
                               0xf0ff3 (size before relaxing)
- .debug_str     0x0010de63      0x235 Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_gpio.o
+ .debug_str     0x0010df04      0x235 Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_gpio.o
                               0xf0f70 (size before relaxing)
- .debug_str     0x0010e098      0xd42 Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_i2c.o
+ .debug_str     0x0010e139      0xd42 Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_i2c.o
                               0xf1d20 (size before relaxing)
- .debug_str     0x0010edda      0x101 Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_i2c_ex.o
+ .debug_str     0x0010ee7b      0x101 Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_i2c_ex.o
                               0xf11da (size before relaxing)
- .debug_str     0x0010eedb      0x4cf Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_pwr_ex.o
+ .debug_str     0x0010ef7c      0x4cf Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_pwr_ex.o
                               0xf11ab (size before relaxing)
- .debug_str     0x0010f3aa      0x391 Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_rcc.o
+ .debug_str     0x0010f44b      0x391 Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_rcc.o
                               0xf12c7 (size before relaxing)
- .debug_str     0x0010f73b      0x3db Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_rcc_ex.o
+ .debug_str     0x0010f7dc      0x3db Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_rcc_ex.o
                               0xf1468 (size before relaxing)
- .debug_str     0x0010fb16      0x174 Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_rng.o
+ .debug_str     0x0010fbb7      0x174 Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_rng.o
                               0xf0d36 (size before relaxing)
- .debug_str     0x0010fc8a      0x24a Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_rtc.o
+ .debug_str     0x0010fd2b      0x24a Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_rtc.o
                               0xf10a6 (size before relaxing)
- .debug_str     0x0010fed4      0x5ac Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_spi.o
+ .debug_str     0x0010ff75      0x5ac Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_spi.o
                               0xf14e1 (size before relaxing)
- .debug_str     0x00110480       0x94 Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_spi_ex.o
+ .debug_str     0x00110521       0x94 Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_spi_ex.o
                               0xf0f19 (size before relaxing)
- .debug_str     0x00110514      0x830 Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_uart.o
+ .debug_str     0x001105b5      0x830 Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_uart.o
                               0xf19bc (size before relaxing)
- .debug_str     0x00110d44      0x1fc Middlewares/Third_Party/AWS/aws_iot_mqtt_client.o
+ .debug_str     0x00110de5      0x1fc Middlewares/Third_Party/AWS/aws_iot_mqtt_client.o
                               0x112bf (size before relaxing)
- .debug_str     0x00110f40      0x5b1 Middlewares/Third_Party/AWS/aws_iot_mqtt_client_common_internal.o
+ .debug_str     0x00110fe1      0x5b1 Middlewares/Third_Party/AWS/aws_iot_mqtt_client_common_internal.o
                               0x116d9 (size before relaxing)
- .debug_str     0x001114f1      0x284 Middlewares/Third_Party/AWS/aws_iot_mqtt_client_connect.o
+ .debug_str     0x00111592      0x284 Middlewares/Third_Party/AWS/aws_iot_mqtt_client_connect.o
                               0x1174c (size before relaxing)
- .debug_str     0x00111775      0x173 Middlewares/Third_Party/AWS/aws_iot_mqtt_client_publish.o
+ .debug_str     0x00111816      0x173 Middlewares/Third_Party/AWS/aws_iot_mqtt_client_publish.o
                               0x115ef (size before relaxing)
- .debug_str     0x001118e8      0x218 Middlewares/Third_Party/AWS/aws_iot_mqtt_client_subscribe.o
+ .debug_str     0x00111989      0x218 Middlewares/Third_Party/AWS/aws_iot_mqtt_client_subscribe.o
                               0x11636 (size before relaxing)
- .debug_str     0x00111b00      0x12b Middlewares/Third_Party/AWS/aws_iot_mqtt_client_yield.o
+ .debug_str     0x00111ba1      0x12b Middlewares/Third_Party/AWS/aws_iot_mqtt_client_yield.o
                               0x1137f (size before relaxing)
- .debug_str     0x00111c2b     0x2790 Middlewares/Third_Party/MbedTLS/aes.o
+ .debug_str     0x00111ccc     0x2790 Middlewares/Third_Party/MbedTLS/aes.o
                                0xafd3 (size before relaxing)
- .debug_str     0x001143bb      0x22a Middlewares/Third_Party/MbedTLS/asn1parse.o
+ .debug_str     0x0011445c      0x22a Middlewares/Third_Party/MbedTLS/asn1parse.o
                                0x90f0 (size before relaxing)
- .debug_str     0x001145e5      0x2cf Middlewares/Third_Party/MbedTLS/asn1write.o
+ .debug_str     0x00114686      0x2cf Middlewares/Third_Party/MbedTLS/asn1write.o
                                0x91bf (size before relaxing)
- .debug_str     0x001148b4      0x18d Middlewares/Third_Party/MbedTLS/base64.o
+ .debug_str     0x00114955      0x18d Middlewares/Third_Party/MbedTLS/base64.o
                                0x890f (size before relaxing)
- .debug_str     0x00114a41      0x8ac Middlewares/Third_Party/MbedTLS/bignum.o
+ .debug_str     0x00114ae2      0x8ac Middlewares/Third_Party/MbedTLS/bignum.o
                                0x9426 (size before relaxing)
- .debug_str     0x001152ed      0xb7a Middlewares/Third_Party/MbedTLS/ccm.o
+ .debug_str     0x0011538e      0xb7a Middlewares/Third_Party/MbedTLS/ccm.o
                                0x8b79 (size before relaxing)
- .debug_str     0x00115e67      0x3c6 Middlewares/Third_Party/MbedTLS/cipher.o
+ .debug_str     0x00115f08      0x3c6 Middlewares/Third_Party/MbedTLS/cipher.o
                                0x9696 (size before relaxing)
- .debug_str     0x0011622d      0x5be Middlewares/Third_Party/MbedTLS/cipher_wrap.o
+ .debug_str     0x001162ce      0x5be Middlewares/Third_Party/MbedTLS/cipher_wrap.o
                                0x9a2b (size before relaxing)
- .debug_str     0x001167eb      0x2c7 Middlewares/Third_Party/MbedTLS/ctr_drbg.o
+ .debug_str     0x0011688c      0x2c7 Middlewares/Third_Party/MbedTLS/ctr_drbg.o
                                0x8ee3 (size before relaxing)
- .debug_str     0x00116ab2      0x278 Middlewares/Third_Party/MbedTLS/debug.o
+ .debug_str     0x00116b53      0x278 Middlewares/Third_Party/MbedTLS/debug.o
                                0xf0c4 (size before relaxing)
- .debug_str     0x00116d2a      0x718 Middlewares/Third_Party/MbedTLS/des.o
+ .debug_str     0x00116dcb      0x718 Middlewares/Third_Party/MbedTLS/des.o
                                0x9074 (size before relaxing)
- .debug_str     0x00117442      0x346 Middlewares/Third_Party/MbedTLS/ecdh.o
+ .debug_str     0x001174e3      0x346 Middlewares/Third_Party/MbedTLS/ecdh.o
                                0x7c3f (size before relaxing)
- .debug_str     0x00117788      0x468 Middlewares/Third_Party/MbedTLS/ecdsa.o
+ .debug_str     0x00117829      0x468 Middlewares/Third_Party/MbedTLS/ecdsa.o
                                0x861f (size before relaxing)
- .debug_str     0x00117bf0      0x6e0 Middlewares/Third_Party/MbedTLS/ecp.o
+ .debug_str     0x00117c91      0x6e0 Middlewares/Third_Party/MbedTLS/ecp.o
                                0x99f1 (size before relaxing)
- .debug_str     0x001182d0      0xc77 Middlewares/Third_Party/MbedTLS/ecp_curves.o
+ .debug_str     0x00118371      0xc77 Middlewares/Third_Party/MbedTLS/ecp_curves.o
                                0x869c (size before relaxing)
- .debug_str     0x00118f47      0x2c2 Middlewares/Third_Party/MbedTLS/entropy.o
+ .debug_str     0x00118fe8      0x2c2 Middlewares/Third_Party/MbedTLS/entropy.o
                                0x8dd6 (size before relaxing)
- .debug_str     0x00119209      0x115 Middlewares/Third_Party/MbedTLS/gcm.o
+ .debug_str     0x001192aa      0x115 Middlewares/Third_Party/MbedTLS/gcm.o
                                0x9664 (size before relaxing)
- .debug_str     0x0011931e      0x27c Middlewares/Third_Party/MbedTLS/hmac_drbg.o
+ .debug_str     0x001193bf      0x27c Middlewares/Third_Party/MbedTLS/hmac_drbg.o
                                0x8530 (size before relaxing)
- .debug_str     0x0011959a      0x26a Middlewares/Third_Party/MbedTLS/md.o
+ .debug_str     0x0011963b      0x26a Middlewares/Third_Party/MbedTLS/md.o
                                0x829e (size before relaxing)
- .debug_str     0x00119804      0x260 Middlewares/Third_Party/MbedTLS/md5.o
+ .debug_str     0x001198a5      0x260 Middlewares/Third_Party/MbedTLS/md5.o
                                0x8bdb (size before relaxing)
- .debug_str     0x00119a64      0x5f5 Middlewares/Third_Party/MbedTLS/md_wrap.o
+ .debug_str     0x00119b05      0x5f5 Middlewares/Third_Party/MbedTLS/md_wrap.o
                                0x9136 (size before relaxing)
- .debug_str     0x0011a059     0x2e22 Middlewares/Third_Party/MbedTLS/oid.o
+ .debug_str     0x0011a0fa     0x2e22 Middlewares/Third_Party/MbedTLS/oid.o
                                0xdb1b (size before relaxing)
- .debug_str     0x0011ce7b      0x256 Middlewares/Third_Party/MbedTLS/pem.o
+ .debug_str     0x0011cf1c      0x256 Middlewares/Third_Party/MbedTLS/pem.o
                                0x8d42 (size before relaxing)
- .debug_str     0x0011d0d1      0x237 Middlewares/Third_Party/MbedTLS/pk.o
+ .debug_str     0x0011d172      0x237 Middlewares/Third_Party/MbedTLS/pk.o
                                0x6a98 (size before relaxing)
- .debug_str     0x0011d308      0x297 Middlewares/Third_Party/MbedTLS/pk_wrap.o
+ .debug_str     0x0011d3a9      0x297 Middlewares/Third_Party/MbedTLS/pk_wrap.o
                                0x9a76 (size before relaxing)
- .debug_str     0x0011d59f      0x2fc Middlewares/Third_Party/MbedTLS/pkcs12.o
+ .debug_str     0x0011d640      0x2fc Middlewares/Third_Party/MbedTLS/pkcs12.o
                                0x8912 (size before relaxing)
- .debug_str     0x0011d89b      0x251 Middlewares/Third_Party/MbedTLS/pkcs5.o
+ .debug_str     0x0011d93c      0x251 Middlewares/Third_Party/MbedTLS/pkcs5.o
                                0xd28e (size before relaxing)
- .debug_str     0x0011daec      0x231 Middlewares/Third_Party/MbedTLS/pkparse.o
+ .debug_str     0x0011db8d      0x231 Middlewares/Third_Party/MbedTLS/pkparse.o
                                0xd7f4 (size before relaxing)
- .debug_str     0x0011dd1d       0x8b Middlewares/Third_Party/MbedTLS/platform.o
+ .debug_str     0x0011ddbe       0x8b Middlewares/Third_Party/MbedTLS/platform.o
                                0x7e09 (size before relaxing)
- .debug_str     0x0011dda8      0x345 Middlewares/Third_Party/MbedTLS/ripemd160.o
+ .debug_str     0x0011de49      0x345 Middlewares/Third_Party/MbedTLS/ripemd160.o
                                0x8dab (size before relaxing)
- .debug_str     0x0011e0ed      0x8ac Middlewares/Third_Party/MbedTLS/rsa.o
+ .debug_str     0x0011e18e      0x8ac Middlewares/Third_Party/MbedTLS/rsa.o
                                0xd3e9 (size before relaxing)
- .debug_str     0x0011e999      0x1b9 Middlewares/Third_Party/MbedTLS/sha1.o
+ .debug_str     0x0011ea3a      0x1b9 Middlewares/Third_Party/MbedTLS/sha1.o
                                0x8c71 (size before relaxing)
- .debug_str     0x0011eb52      0x465 Middlewares/Third_Party/MbedTLS/sha256.o
+ .debug_str     0x0011ebf3      0x465 Middlewares/Third_Party/MbedTLS/sha256.o
                                0x8d3f (size before relaxing)
- .debug_str     0x0011efb7      0x490 Middlewares/Third_Party/MbedTLS/sha512.o
+ .debug_str     0x0011f058      0x490 Middlewares/Third_Party/MbedTLS/sha512.o
                                0x8e28 (size before relaxing)
- .debug_str     0x0011f447      0x3ab Middlewares/Third_Party/MbedTLS/ssl_ciphersuites.o
+ .debug_str     0x0011f4e8      0x3ab Middlewares/Third_Party/MbedTLS/ssl_ciphersuites.o
                                0xeb67 (size before relaxing)
- .debug_str     0x0011f7f2      0xe60 Middlewares/Third_Party/MbedTLS/ssl_cli.o
+ .debug_str     0x0011f893      0xe60 Middlewares/Third_Party/MbedTLS/ssl_cli.o
                               0x10902 (size before relaxing)
- .debug_str     0x00120652      0xb20 Middlewares/Third_Party/MbedTLS/ssl_tls.o
+ .debug_str     0x001206f3      0xb20 Middlewares/Third_Party/MbedTLS/ssl_tls.o
                               0x13445 (size before relaxing)
- .debug_str     0x00121172      0x344 Middlewares/Third_Party/MbedTLS/x509.o
+ .debug_str     0x00121213      0x344 Middlewares/Third_Party/MbedTLS/x509.o
                                0xd5d2 (size before relaxing)
- .debug_str     0x001214b6      0x19a Middlewares/Third_Party/MbedTLS/x509_crl.o
+ .debug_str     0x00121557      0x19a Middlewares/Third_Party/MbedTLS/x509_crl.o
                                0xccb6 (size before relaxing)
- .debug_str     0x00121650      0x52e Middlewares/Third_Party/MbedTLS/x509_crt.o
+ .debug_str     0x001216f1      0x52e Middlewares/Third_Party/MbedTLS/x509_crt.o
                                0xd8cd (size before relaxing)
 
 .comment        0x00000000       0x7f
