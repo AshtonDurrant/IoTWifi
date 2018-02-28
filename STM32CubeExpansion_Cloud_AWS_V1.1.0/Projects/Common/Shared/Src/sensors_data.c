@@ -191,7 +191,7 @@ int PrepareMqttPayload(char * PayloadBuffer, int PayloadSize, char * deviceID)
            "   \"temperature\": %.2f,\n   \"humidity\": %.2f,\n   \"pressure\": %.2f,\n   \"proximity\": %d,\n"
            "   \"acc_x\": %d, \"acc_y\": %d, \"acc_z\": %d,\n"
            "   \"gyr_x\": %.0f, \"gyr_y\": %.0f, \"gyr_z\": %.0f,\n"
-           "   \"mag_x\": %d, \"mag_y\": %d, \"mag_z\": %d\n \" Random Number\": %d\n"
+           "   \"mag_x\": %d, \"mag_y\": %d, \"mag_z\": %d,\n \" Random Number\": %d\n"
            "  }\n }\n}",
            TEMPERATURE_Value, HUMIDITY_Value, PRESSURE_Value, PROXIMITY_Value,
            ACC_Value[0], ACC_Value[1], ACC_Value[2],
