@@ -24113,74 +24113,74 @@ UNINIT_FIXED_LOC
                 0x08031415      0x218 Application/Common/rfu.o
                                 0x228 (size before relaxing)
  .rodata.str1.1
-                0x0803162d      0x231 Application/Common/sensors_data.o
-                                0x241 (size before relaxing)
+                0x0803162d      0x230 Application/Common/sensors_data.o
+                                0x240 (size before relaxing)
  .rodata.str1.1
-                0x0803185e      0x1df Application/Common/timedate.o
+                0x0803185d      0x1df Application/Common/timedate.o
                                 0x275 (size before relaxing)
  .rodata.str1.1
-                0x08031a3d      0x1ba Application/Common/wifi_net.o
+                0x08031a3c      0x1ba Application/Common/wifi_net.o
                                 0x1e3 (size before relaxing)
  .rodata.str1.1
-                0x08031bf7      0x17b Application/User/vl53l0x_proximity.o
+                0x08031bf6      0x17b Application/User/vl53l0x_proximity.o
  .rodata.str1.1
-                0x08031d72      0x437 Drivers/BSP/Components/vl53l0x/vl53l0x_api_strings.o
+                0x08031d71      0x437 Drivers/BSP/Components/vl53l0x/vl53l0x_api_strings.o
                                 0x453 (size before relaxing)
  .rodata.str1.1
-                0x080321a9      0x19c Drivers/BSP/es_wifi.o
+                0x080321a8      0x19c Drivers/BSP/es_wifi.o
                                 0x1ac (size before relaxing)
  .rodata.str1.1
-                0x08032345        0x5 Middlewares/Third_Party/AWS/aws_iot_mqtt_client_connect.o
+                0x08032344        0x5 Middlewares/Third_Party/AWS/aws_iot_mqtt_client_connect.o
  .rodata.str1.1
-                0x0803234a       0x75 Middlewares/Third_Party/MbedTLS/cipher_wrap.o
+                0x08032349       0x75 Middlewares/Third_Party/MbedTLS/cipher_wrap.o
                                  0x8d (size before relaxing)
  .rodata.str1.1
-                0x080323bf       0xb4 Middlewares/Third_Party/MbedTLS/debug.o
+                0x080323be       0xb4 Middlewares/Third_Party/MbedTLS/debug.o
                                  0xb7 (size before relaxing)
  .rodata.str1.1
-                0x08032473      0x243 Middlewares/Third_Party/MbedTLS/ecp.o
+                0x08032472      0x243 Middlewares/Third_Party/MbedTLS/ecp.o
  .rodata.str1.1
-                0x080326b6        0x7 Middlewares/Third_Party/MbedTLS/ecp_curves.o
+                0x080326b5        0x7 Middlewares/Third_Party/MbedTLS/ecp_curves.o
  .rodata.str1.1
-                0x080326bd        0xa Middlewares/Third_Party/MbedTLS/md_wrap.o
+                0x080326bc        0xa Middlewares/Third_Party/MbedTLS/md_wrap.o
                                  0x2f (size before relaxing)
  .rodata.str1.1
-                0x080326c7      0x8a8 Middlewares/Third_Party/MbedTLS/oid.o
+                0x080326c6      0x8a8 Middlewares/Third_Party/MbedTLS/oid.o
                                 0x9df (size before relaxing)
  .rodata.str1.1
-                0x08032f6f       0x17 Middlewares/Third_Party/MbedTLS/pem.o
+                0x08032f6e       0x17 Middlewares/Third_Party/MbedTLS/pem.o
  .rodata.str1.1
-                0x08032f86        0xb Middlewares/Third_Party/MbedTLS/pk.o
+                0x08032f85        0xb Middlewares/Third_Party/MbedTLS/pk.o
  .rodata.str1.1
-                0x08032f91       0x23 Middlewares/Third_Party/MbedTLS/pk_wrap.o
+                0x08032f90       0x23 Middlewares/Third_Party/MbedTLS/pk_wrap.o
                                  0x27 (size before relaxing)
  .rodata.str1.1
-                0x08032fb4       0x29 Middlewares/Third_Party/MbedTLS/pkcs5.o
+                0x08032fb3       0x29 Middlewares/Third_Party/MbedTLS/pkcs5.o
                                  0x37 (size before relaxing)
  .rodata.str1.1
-                0x08032fdd      0x14b Middlewares/Third_Party/MbedTLS/pkparse.o
+                0x08032fdc      0x14b Middlewares/Third_Party/MbedTLS/pkparse.o
  .rodata.str1.1
-                0x08033128      0x10f Middlewares/Third_Party/MbedTLS/ripemd160.o
+                0x08033127      0x10f Middlewares/Third_Party/MbedTLS/ripemd160.o
                                 0x120 (size before relaxing)
  .rodata.str1.1
-                0x08033237      0x1d4 Middlewares/Third_Party/MbedTLS/ssl_ciphersuites.o
+                0x08033236      0x1d4 Middlewares/Third_Party/MbedTLS/ssl_ciphersuites.o
                                 0x1d5 (size before relaxing)
  .rodata.str1.1
-                0x0803340b      0xea6 Middlewares/Third_Party/MbedTLS/ssl_cli.o
+                0x0803340a      0xea6 Middlewares/Third_Party/MbedTLS/ssl_cli.o
                                 0xebc (size before relaxing)
  .rodata.str1.1
-                0x080342b1      0xf0d Middlewares/Third_Party/MbedTLS/ssl_tls.o
+                0x080342b0      0xf0d Middlewares/Third_Party/MbedTLS/ssl_tls.o
                                 0xfaf (size before relaxing)
  .rodata.str1.1
-                0x080351be       0x8c Middlewares/Third_Party/MbedTLS/x509.o
+                0x080351bd       0x8c Middlewares/Third_Party/MbedTLS/x509.o
                                  0x9e (size before relaxing)
  .rodata.str1.1
-                0x0803524a      0x12b Middlewares/Third_Party/MbedTLS/x509_crl.o
+                0x08035249      0x12b Middlewares/Third_Party/MbedTLS/x509_crl.o
                                 0x12d (size before relaxing)
  .rodata.str1.1
-                0x08035375      0x6c2 Middlewares/Third_Party/MbedTLS/x509_crt.o
+                0x08035374      0x6c2 Middlewares/Third_Party/MbedTLS/x509_crt.o
                                 0x70b (size before relaxing)
- *fill*         0x08035a37        0x1 
+ *fill*         0x08035a36        0x2 
  .rodata._global_impure_ptr
                 0x08035a38        0x4 c:/ac6/systemworkbench/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.15.0.201708311556/tools/compiler/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libc_nano.a(lib_a-impure.o)
                 0x08035a38                _global_impure_ptr
