@@ -210,9 +210,10 @@ int subscribe_publish_sensor_values(void)
     return -1;
   }
   
+  
   snprintf(cPTopicName, sizeof(cPTopicName), AWS_DEVICE_SHADOW_PRE "%s" AWS_DEVICE_SHADOW_UPDATE_TOPIC, deviceName);
   snprintf(cSTopicName, sizeof(cSTopicName), AWS_DEVICE_SHADOW_PRE "%s" AWS_DEVICE_SHADOW_UPDATE_ACCEPTED_TOPIC, deviceName);
-  
+
   /*
   IoT_Publish_Message_Params paramsQOS0;
   IoT_Publish_Message_Params paramsQOS1;

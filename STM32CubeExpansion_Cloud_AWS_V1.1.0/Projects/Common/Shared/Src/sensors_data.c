@@ -190,9 +190,10 @@ int PrepareMqttPayload(char * PayloadBuffer, int PayloadSize, char * deviceID)
   snprintfreturn = snprintf( Buff, BuffSize, "{\n \"state\": {\n  \"reported\": {\n"
            "   \"temperature\": %.2f,\n   \"humidity\": %.2f,\n"
            "   \"acc_x\": %d, \"acc_y\": %d, \"acc_z\": %d\n"
-           "  }\n }\n}",
+           "  }\n },\n"
+           " \"acc_x\": %d, \"acc_y\": %d, \"acc_z\": %d\n}",
            TEMPERATURE_Value, HUMIDITY_Value,
-           ACC_Value[0], ACC_Value[1], ACC_Value[2]);
+           ACC_Value[0], ACC_Value[1], ACC_Value[2], ACC_Value[0], ACC_Value[1], ACC_Value[2]);
   }
  #endif
   /* Check total size to be less than buffer size
