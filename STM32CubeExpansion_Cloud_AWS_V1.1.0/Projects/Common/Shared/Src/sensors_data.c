@@ -148,12 +148,12 @@ int PrepareMqttPayload(char * PayloadBuffer, int PayloadSize, char * deviceID)
   /*End random number generation by Ashton Durrant */
 
 
-  //Only get temperature, humidity, and accelerometer data.
+  //Only get temperature, humidity, and barometer data.
   TEMPERATURE_Value = BSP_TSENSOR_ReadTemp();
   HUMIDITY_Value = BSP_HSENSOR_ReadHumidity();
-  //PRESSURE_Value = BSP_PSENSOR_ReadPressure();
+  PRESSURE_Value = BSP_PSENSOR_ReadPressure();
   //PROXIMITY_Value = VL53L0X_PROXIMITY_GetDistance();
-  BSP_ACCELERO_AccGetXYZ(ACC_Value);
+  //BSP_ACCELERO_AccGetXYZ(ACC_Value);
   //BSP_GYRO_GetXYZ(GYR_Value);
   //BSP_MAGNETO_GetXYZ(MAG_Value);
 
@@ -188,12 +188,9 @@ int PrepareMqttPayload(char * PayloadBuffer, int PayloadSize, char * deviceID)
   else
   {
 	  snprintfreturn = snprintf( Buff, BuffSize, "{\n \"state\": {\n  \"reported\": {\n"
-           "   \"temperature\": %.2f,\n   \"humidity\": %.2f,\n"
-           "   \"acc_x\": %d, \"acc_y\": %d, \"acc_z\": %d\n"
+           "   \"temperature\": %.2f,\n   \"humidity\": %.2f,\n   \"pressure\": %.2f\n"
            "  }\n }\n}",
-           TEMPERATURE_Value, HUMIDITY_Value, ACC_Value[0], ACC_Value[1], ACC_Value[2]);
-	  /*snprintfreturn = snprintf( Buff, BuffSize, "\"acc_x\": %d, \"acc_y\": %d, \"acc_z\": %d",
-	             ACC_Value[0], ACC_Value[1], ACC_Value[2]);*/
+           TEMPERATURE_Value, HUMIDITY_Value, PRESSURE_Value);
   }
  #endif
   /* Check total size to be less than buffer size
