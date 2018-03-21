@@ -77,7 +77,7 @@ typedef enum
 
 /* Private function prototypes -----------------------------------------------*/
 void CLOUD_Error_Handler(int errorCode);
-static void cloud_device_enter_credentials(void);
+//static void cloud_device_enter_credentials(void);
 
 /* Exported functions --------------------------------------------------------*/
 /**
@@ -159,7 +159,7 @@ void CLOUD_Error_Handler(int errorCode)
   }
 }
 
-
+/*
 static void cloud_device_enter_credentials(void)
 {
 #ifdef AWS
@@ -182,7 +182,7 @@ static void cloud_device_enter_credentials(void)
     BluemixDeviceConfig();
   }
 #endif  
-}
+}*/
 
 
 int platform_init(void)
@@ -191,7 +191,7 @@ int platform_init(void)
   net_macaddr_t macAddr;
   const firmware_version_t  * fw_version;
   unsigned int random_number = 0;
-  bool skip_reconf = false;
+  //bool skip_reconf = false;
 
   rfu_getVersion(&fw_version, false);
   
@@ -265,6 +265,7 @@ int platform_init(void)
 
   /* Security and cloud parameters definition */
   /* Define, or allow to update if the user button is pushed. */
+  /*
   skip_reconf = (checkTLSRootCA() == 0)
 #if AWS
     && (checkTLSDevice() == 0)
@@ -282,7 +283,7 @@ int platform_init(void)
   {
     updateTLSCredentials();
     cloud_device_enter_credentials();
-  }
+  }*/
   /* End of security and cloud parameters definition */
   
   msg_info("Setting the RTC from the network time.\n");
@@ -294,7 +295,7 @@ int platform_init(void)
   
   {
 #if defined(RFU) && !defined(FIREWALL_MBEDLIB)
-    updateFirmwareVersion();
+   // updateFirmwareVersion();
 #endif  /* RFU */
   }
   else
