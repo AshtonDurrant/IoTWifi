@@ -1,4 +1,4 @@
-/**
+/** Beginning Final Project for ECE 497 (IoT)
   ******************************************************************************
   * @file    main.c
   * @author  MCD Application Team
