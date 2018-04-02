@@ -2147,6 +2147,79 @@ Discarded input sections
  .debug_macro   0x00000000       0x2e Application/Common/iot_flash_config.o
  .debug_macro   0x00000000       0x10 Application/Common/iot_flash_config.o
  .debug_macro   0x00000000       0x46 Application/Common/iot_flash_config.o
+ .group         0x00000000        0x8 Application/Common/lightsensor.o
+ .group         0x00000000        0x8 Application/Common/lightsensor.o
+ .group         0x00000000        0x8 Application/Common/lightsensor.o
+ .group         0x00000000        0x8 Application/Common/lightsensor.o
+ .group         0x00000000        0x8 Application/Common/lightsensor.o
+ .group         0x00000000        0x8 Application/Common/lightsensor.o
+ .group         0x00000000        0x8 Application/Common/lightsensor.o
+ .group         0x00000000        0x8 Application/Common/lightsensor.o
+ .group         0x00000000        0x8 Application/Common/lightsensor.o
+ .group         0x00000000        0x8 Application/Common/lightsensor.o
+ .group         0x00000000        0x8 Application/Common/lightsensor.o
+ .group         0x00000000        0x8 Application/Common/lightsensor.o
+ .group         0x00000000        0x8 Application/Common/lightsensor.o
+ .group         0x00000000        0x8 Application/Common/lightsensor.o
+ .group         0x00000000        0x8 Application/Common/lightsensor.o
+ .group         0x00000000        0x8 Application/Common/lightsensor.o
+ .group         0x00000000        0x8 Application/Common/lightsensor.o
+ .group         0x00000000        0x8 Application/Common/lightsensor.o
+ .group         0x00000000        0x8 Application/Common/lightsensor.o
+ .group         0x00000000        0x8 Application/Common/lightsensor.o
+ .group         0x00000000        0x8 Application/Common/lightsensor.o
+ .group         0x00000000        0x8 Application/Common/lightsensor.o
+ .group         0x00000000        0x8 Application/Common/lightsensor.o
+ .group         0x00000000        0x8 Application/Common/lightsensor.o
+ .group         0x00000000        0x8 Application/Common/lightsensor.o
+ .group         0x00000000        0x8 Application/Common/lightsensor.o
+ .group         0x00000000        0x8 Application/Common/lightsensor.o
+ .text          0x00000000        0x0 Application/Common/lightsensor.o
+ .data          0x00000000        0x0 Application/Common/lightsensor.o
+ .bss           0x00000000        0x0 Application/Common/lightsensor.o
+ .text.activate_light_sensor
+                0x00000000        0xc Application/Common/lightsensor.o
+ .rodata.str1.1
+                0x00000000        0xb Application/Common/lightsensor.o
+ .debug_info    0x00000000      0x8d4 Application/Common/lightsensor.o
+ .debug_abbrev  0x00000000      0x1c6 Application/Common/lightsensor.o
+ .debug_aranges
+                0x00000000       0x20 Application/Common/lightsensor.o
+ .debug_ranges  0x00000000       0x10 Application/Common/lightsensor.o
+ .debug_macro   0x00000000      0x193 Application/Common/lightsensor.o
+ .debug_macro   0x00000000      0x8e6 Application/Common/lightsensor.o
+ .debug_macro   0x00000000       0x22 Application/Common/lightsensor.o
+ .debug_macro   0x00000000       0x52 Application/Common/lightsensor.o
+ .debug_macro   0x00000000       0x8d Application/Common/lightsensor.o
+ .debug_macro   0x00000000       0x35 Application/Common/lightsensor.o
+ .debug_macro   0x00000000       0x9c Application/Common/lightsensor.o
+ .debug_macro   0x00000000       0x16 Application/Common/lightsensor.o
+ .debug_macro   0x00000000       0x57 Application/Common/lightsensor.o
+ .debug_macro   0x00000000       0x97 Application/Common/lightsensor.o
+ .debug_macro   0x00000000      0x330 Application/Common/lightsensor.o
+ .debug_macro   0x00000000       0xfd Application/Common/lightsensor.o
+ .debug_macro   0x00000000       0x10 Application/Common/lightsensor.o
+ .debug_macro   0x00000000       0x58 Application/Common/lightsensor.o
+ .debug_macro   0x00000000       0x1f Application/Common/lightsensor.o
+ .debug_macro   0x00000000       0x43 Application/Common/lightsensor.o
+ .debug_macro   0x00000000       0x20 Application/Common/lightsensor.o
+ .debug_macro   0x00000000      0x187 Application/Common/lightsensor.o
+ .debug_macro   0x00000000       0x10 Application/Common/lightsensor.o
+ .debug_macro   0x00000000       0x6a Application/Common/lightsensor.o
+ .debug_macro   0x00000000       0x1c Application/Common/lightsensor.o
+ .debug_macro   0x00000000       0x52 Application/Common/lightsensor.o
+ .debug_macro   0x00000000       0x40 Application/Common/lightsensor.o
+ .debug_macro   0x00000000       0x10 Application/Common/lightsensor.o
+ .debug_macro   0x00000000       0x40 Application/Common/lightsensor.o
+ .debug_macro   0x00000000       0xd7 Application/Common/lightsensor.o
+ .debug_macro   0x00000000       0x16 Application/Common/lightsensor.o
+ .debug_macro   0x00000000      0x18b Application/Common/lightsensor.o
+ .debug_line    0x00000000      0x3de Application/Common/lightsensor.o
+ .debug_str     0x00000000     0x6c7d Application/Common/lightsensor.o
+ .comment       0x00000000       0x80 Application/Common/lightsensor.o
+ .debug_frame   0x00000000       0x20 Application/Common/lightsensor.o
+ .ARM.attributes
+                0x00000000       0x39 Application/Common/lightsensor.o
  .group         0x00000000        0x8 Application/Common/mbedtls_net.o
  .group         0x00000000        0x8 Application/Common/mbedtls_net.o
  .group         0x00000000        0x8 Application/Common/mbedtls_net.o
@@ -20798,6 +20871,7 @@ LOAD Application/Common/flash_l4.o
 LOAD Application/Common/heap.o
 LOAD Application/Common/http_util.o
 LOAD Application/Common/iot_flash_config.o
+LOAD Application/Common/lightsensor.o
 LOAD Application/Common/mbedtls_net.o
 LOAD Application/Common/mbedtls_patch.o
 LOAD Application/Common/net.o
