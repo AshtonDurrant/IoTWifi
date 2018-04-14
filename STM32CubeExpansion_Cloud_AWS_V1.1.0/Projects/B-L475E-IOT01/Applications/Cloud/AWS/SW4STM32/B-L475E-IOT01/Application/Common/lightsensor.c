@@ -10,6 +10,6 @@
 #include <stdio.h>
 
 void activate_light_sensor(void){
-	printf("Hey there!");
+	printf("Hey there!\n");
 }
 

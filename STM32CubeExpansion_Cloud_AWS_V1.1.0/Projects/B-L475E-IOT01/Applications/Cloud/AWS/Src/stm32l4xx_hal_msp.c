@@ -60,6 +60,7 @@
                                        |RCC_PERIPHCLK_RNG;
   PeriphClkInit.Usart1ClockSelection  = RCC_USART1CLKSOURCE_PCLK2;
   PeriphClkInit.Usart3ClockSelection  = RCC_USART3CLKSOURCE_PCLK1;
+  PeriphClkInit.I2c1ClockSelection	  = RCC_I2C1CLKSOURCE_PCLK1;	//Added by Ashton Durrant, 4-11-2018
   PeriphClkInit.I2c2ClockSelection    = RCC_I2C2CLKSOURCE_PCLK1;
   PeriphClkInit.RngClockSelection     = RCC_RNGCLKSOURCE_MSI;
 

@@ -217,7 +217,7 @@ typedef struct __I2C_HandleTypeDef
 
   DMA_HandleTypeDef          *hdmarx;        /*!< I2C Rx DMA handle parameters              */
 
-  HAL_LockTypeDef            Lock;           /*!< I2C locking object                        */
+  HAL_LockTypeDef            Lock;           /*!< I2C locking object:0 for unlocked, 1 for locked.*/
 
   __IO HAL_I2C_StateTypeDef  State;          /*!< I2C communication state                   */
 

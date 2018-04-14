@@ -56,6 +56,7 @@
 #include "heap.h"
 #include "rfu.h"
 #include "cloud.h"
+#include "lightsensor.h"
 
 extern int net_if_init(void * if_ctxt);
 extern int net_if_deinit(void * if_ctxt);
@@ -311,7 +312,7 @@ int platform_init(void)
     msg_error("init_sensors returned error : %d\n", res);
   }
 #endif /* SENSOR */
-   
+   activate_light_sensor();
  return 0;
 }
 

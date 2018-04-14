@@ -331,9 +331,9 @@ static void RTC_Init(void)
 
 static void cloud_test(void const *arg)
 {
-  platform_init();
-  subscribe_publish_sensor_values();
-  platform_deinit(); 
+	platform_init();
+	subscribe_publish_sensor_values();
+	platform_deinit();
 }
 
 

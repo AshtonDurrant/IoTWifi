@@ -107,6 +107,7 @@ const uint16_t COM_TX_AF[COMn] = {DISCOVERY_COM1_TX_AF};
 const uint16_t COM_RX_AF[COMn] = {DISCOVERY_COM1_RX_AF};
 
 I2C_HandleTypeDef hI2cHandler;
+I2C_HandleTypeDef hI2c1Handler;		//Handler for I2C1
 UART_HandleTypeDef hDiscoUart;
 
 /**
@@ -459,6 +460,29 @@ static void I2Cx_Init(I2C_HandleTypeDef *i2c_handler)
   HAL_I2CEx_ConfigAnalogFilter(i2c_handler, I2C_ANALOGFILTER_ENABLE);  
 }
 
+/*This is my test to see if I can initialize I2C1 for interfacing the ambient light sensor
+ * with the IoT board.
+ */
+static void I2C1_Init(I2C_HandleTypeDef *i2c_handler)
+{
+  /* I2C configuration */
+  i2c_handler->Instance              = MY_I2C1;	// Ignore the error. It's fine. It finds it.
+  i2c_handler->Init.Timing           = DISCOVERY_I2Cx_TIMING;
+  i2c_handler->Init.OwnAddress1      = 0;
+  i2c_handler->Init.AddressingMode   = I2C_ADDRESSINGMODE_7BIT;
+  i2c_handler->Init.DualAddressMode  = I2C_DUALADDRESS_DISABLE;
+  i2c_handler->Init.OwnAddress2      = 0;
+  i2c_handler->Init.GeneralCallMode  = I2C_GENERALCALL_DISABLE;
+  i2c_handler->Init.NoStretchMode    = I2C_NOSTRETCH_DISABLE;
+
+  /* Init the I2C */
+  I2Cx_MspInit(i2c_handler);
+  HAL_I2C_Init(i2c_handler);
+
+  /**Configure Analogue filter */
+  HAL_I2CEx_ConfigAnalogFilter(i2c_handler, I2C_ANALOGFILTER_ENABLE);
+}
+
 /**
   * @brief  DeInitializes I2C HAL.
   * @param  i2c_handler : I2C handler
@@ -565,6 +589,7 @@ static void I2Cx_Error(I2C_HandleTypeDef *i2c_handler, uint8_t Addr)
 void SENSOR_IO_Init(void)
 {
   I2Cx_Init(&hI2cHandler);
+  I2Cx_Init(&hI2c1Handler);
 }
 
 /**
