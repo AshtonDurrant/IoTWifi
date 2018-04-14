@@ -417,6 +417,50 @@ static void I2Cx_MspInit(I2C_HandleTypeDef *i2c_handler)
 }
 
 /**
+  * @brief  Initializes I2C1 MSP.
+  * @param  i2c_handler : I2C handler
+  * @retval None
+  */
+static void I2C1_MspInit(I2C_HandleTypeDef *i2c_handler)
+{
+  GPIO_InitTypeDef  gpio_init_structure;
+
+  /*** Configure the GPIOs ***/
+  /* Enable GPIO clock */
+  DISCOVERY_I2Cx_SCL_SDA_GPIO_CLK_ENABLE();
+
+  /* Configure I2C Tx, Rx as alternate function */
+  gpio_init_structure.Pin = I2C1_SCL_PIN | I2C1_SDA_PIN;
+  gpio_init_structure.Mode = GPIO_MODE_AF_OD;
+  gpio_init_structure.Pull = GPIO_PULLUP;
+  gpio_init_structure.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+  gpio_init_structure.Alternate = MY_I2C1_SCL_SDA_AF;
+  HAL_GPIO_Init(I2C1_GPIO_PORT, &gpio_init_structure);
+
+  HAL_GPIO_Init(I2C1_GPIO_PORT, &gpio_init_structure);
+
+  /*** Configure the I2C1 peripheral ***/
+  /* Enable I2C clock for I2C1 */
+  I2C1_CLK_ENABLE();
+
+  /* Force the I2C1 peripheral clock reset */
+  I2C1_FORCE_RESET();
+
+  /* Release the I2C1 peripheral clock reset */
+  I2C1_RELEASE_RESET();
+
+  /* Enable and set I2C1 Event Interrupt to a lower priority */
+  //Just as a warning, setting this to have the same preemptability and priority as I2C2 may be an issue
+  HAL_NVIC_SetPriority(I2C1_EV_IRQn, 0x0F, 0);
+  HAL_NVIC_EnableIRQ(I2C1_EV_IRQn);
+
+  /* Enable and set I2C1 Error Interrupt to a lower priority */
+  //Just as a warning, setting this to have the same preemptability and priority as I2C2 may be an issue
+  HAL_NVIC_SetPriority(I2C1_ER_IRQn, 0x0F, 0);
+  HAL_NVIC_EnableIRQ(I2C1_ER_IRQn);
+}	//End of initialization for I2C1
+
+/**
   * @brief  DeInitializes I2C MSP.
   * @param  i2c_handler : I2C handler
   * @retval None
@@ -431,6 +475,25 @@ static void I2Cx_MspDeInit(I2C_HandleTypeDef *i2c_handler)
   /* Disable GPIO clock */
   DISCOVERY_I2Cx_SCL_SDA_GPIO_CLK_DISABLE();
   
+  /* Disable I2C clock */
+  DISCOVERY_I2Cx_CLK_DISABLE();
+}
+
+/**
+  * @brief  DeInitializes I2C1 MSP.
+  * @param  i2c_handler : I2C handler
+  * @retval None
+  */
+static void I2C1_MspDeInit(I2C_HandleTypeDef *i2c_handler)
+{
+  GPIO_InitTypeDef  gpio_init_structure;
+
+  /* Configure I2C1 Tx, Rx as alternate function */
+  gpio_init_structure.Pin = I2C1_SCL_PIN | I2C1_SDA_PIN;
+  HAL_GPIO_DeInit(I2C1_GPIO_PORT, gpio_init_structure.Pin);
+  /* Disable GPIO clock */
+  DISCOVERY_I2Cx_SCL_SDA_GPIO_CLK_DISABLE();
+
   /* Disable I2C clock */
   DISCOVERY_I2Cx_CLK_DISABLE();
 }
@@ -476,7 +539,7 @@ static void I2C1_Init(I2C_HandleTypeDef *i2c_handler)
   i2c_handler->Init.NoStretchMode    = I2C_NOSTRETCH_DISABLE;
 
   /* Init the I2C */
-  I2Cx_MspInit(i2c_handler);
+  I2C1_MspInit(i2c_handler);
   HAL_I2C_Init(i2c_handler);
 
   /**Configure Analogue filter */
@@ -492,6 +555,17 @@ static void I2Cx_DeInit(I2C_HandleTypeDef *i2c_handler)
 {  /* DeInit the I2C */
   I2Cx_MspDeInit(i2c_handler);
   HAL_I2C_DeInit(i2c_handler); 
+}
+
+/**
+  * @brief  DeInitializes I2C1 HAL.
+  * @param  i2c_handler : I2C handler
+  * @retval None
+  */
+static void I2C1_DeInit(I2C_HandleTypeDef *i2c_handler)
+{  /* DeInit the I2C */
+  I2C1_MspDeInit(i2c_handler);
+  HAL_I2C_DeInit(i2c_handler);
 }
 
 /**

@@ -198,6 +198,13 @@ typedef enum
 #define I2C1_SCL_PIN							   GPIO_PIN_8
 #define I2C1_SDA_PIN							   GPIO_PIN_9
 #define I2C1_GPIO_PORT							   GPIOB
+#define MY_I2C1_SCL_SDA_AF				   		   GPIO_AF4_I2C1
+#define I2C1_CLK_ENABLE()						   __HAL_RCC_I2C1_CLK_ENABLE()
+#define I2C1_CLK_DISABLE()						   __HAL_RCC_I2C1_CLK_DISABLE()
+#define I2C1_FORCE_RESET()						   __HAL_RCC_I2C1_FORCE_RESET()
+#define I2C1_RELEASE_RESET()					  __HAL_RCC_I2C1_RELEASE_RESET()
+#define I2C1_EV_IRQn							  I2C1_EV_IRQn
+#define I2C1_ER_IRQn							  I2C1_ER_IRQn
 /*End additions*/
 
 #define DISCOVERY_I2Cx_SCL_SDA_GPIO_PORT           GPIOB
