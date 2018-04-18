@@ -312,7 +312,7 @@ int platform_init(void)
     msg_error("init_sensors returned error : %d\n", res);
   }
 #endif /* SENSOR */
-   activate_light_sensor();
+//   activate_light_sensor();
  return 0;
 }
 

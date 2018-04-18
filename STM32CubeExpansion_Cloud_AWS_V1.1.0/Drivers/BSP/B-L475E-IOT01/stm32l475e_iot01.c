@@ -121,7 +121,9 @@ static void     I2Cx_MspDeInit(I2C_HandleTypeDef *i2c_handler);
 static void     I2Cx_Init(I2C_HandleTypeDef *i2c_handler);
 static void     I2Cx_DeInit(I2C_HandleTypeDef *i2c_handler);
 static HAL_StatusTypeDef I2Cx_ReadMultiple(I2C_HandleTypeDef *i2c_handler, uint8_t Addr, uint16_t Reg, uint16_t MemAddSize, uint8_t *Buffer, uint16_t Length);
+static HAL_StatusTypeDef I2C1_ReadMultiple(uint8_t Addr, uint16_t Reg, uint16_t MemAddSize, uint8_t *Buffer, uint16_t Length);
 static HAL_StatusTypeDef I2Cx_WriteMultiple(I2C_HandleTypeDef *i2c_handler, uint8_t Addr, uint16_t Reg, uint16_t MemAddSize, uint8_t *Buffer, uint16_t Length);
+static HAL_StatusTypeDef I2C1_WriteMultiple(uint8_t Addr, uint16_t Reg, uint16_t MemAddSize, uint8_t *Buffer, uint16_t Length);
 static HAL_StatusTypeDef I2Cx_IsDeviceReady(I2C_HandleTypeDef *i2c_handler, uint16_t DevAddress, uint32_t Trials);
 static void              I2Cx_Error(I2C_HandleTypeDef *i2c_handler, uint8_t Addr);
 
@@ -593,6 +595,23 @@ static HAL_StatusTypeDef I2Cx_ReadMultiple(I2C_HandleTypeDef *i2c_handler, uint8
   return status;
 }
 
+static HAL_StatusTypeDef I2C1_ReadMultiple(uint8_t Addr, uint16_t Reg, uint16_t MemAddress, uint8_t *Buffer, uint16_t Length)
+{
+	HAL_StatusTypeDef status = HAL_OK;
+
+		//I think that MemAddress is whether the memory address is 8 Bit or 16 Bit
+	  status = HAL_I2C_Mem_Read(&hI2c1Handler, Addr, (uint16_t)Reg, MemAddress, Buffer, Length, 1000);
+
+	  //The I2CHandler buffer member has the read-in data.
+
+	  /* Check the communication status */
+	  if(status != HAL_OK)
+	  {
+	    /* I2C error occured */
+	    I2Cx_Error(&hI2c1Handler, Addr);
+	  }
+	  return status;
+}
 
 /**
   * @brief  Writes a value in a register of the device through BUS in using DMA mode.
@@ -663,7 +682,7 @@ static void I2Cx_Error(I2C_HandleTypeDef *i2c_handler, uint8_t Addr)
 void SENSOR_IO_Init(void)
 {
   I2Cx_Init(&hI2cHandler);
-  I2Cx_Init(&hI2c1Handler);
+  I2C1_Init(&hI2c1Handler);	//Added by Ashton Durrant, 4-14-2018
 }
 
 /**
@@ -673,6 +692,7 @@ void SENSOR_IO_Init(void)
 void SENSOR_IO_DeInit(void)
 {
   I2Cx_DeInit(&hI2cHandler);
+  I2C1_DeInit(&hI2c1Handler);
 }
 
 /**
@@ -687,6 +707,12 @@ void SENSOR_IO_Write(uint8_t Addr, uint8_t Reg, uint8_t Value)
   I2Cx_WriteMultiple(&hI2cHandler, Addr, (uint16_t)Reg, I2C_MEMADD_SIZE_8BIT,(uint8_t*)&Value, 1);
 }
 
+/*Custom function by Ashton Durrant. Modeled after SENSOR_IO_Write, but writes over I2C1 peripheral*/
+void SENSOR_IO_I2C1_Write(uint8_t Address, uint8_t Register, uint8_t Value)
+{
+	I2C1_WriteMultiple(Address, (uint16_t)Register, I2C_MEMADD_SIZE_8BIT, (uint8_t*)&Value, 1);
+}
+
 /**
   * @brief  Reads a single data.
   * @param  Addr: I2C address
@@ -698,6 +724,21 @@ uint8_t SENSOR_IO_Read(uint8_t Addr, uint8_t Reg)
   uint8_t read_value = 0;
 
   I2Cx_ReadMultiple(&hI2cHandler, Addr, Reg, I2C_MEMADD_SIZE_8BIT, (uint8_t*)&read_value, 1);
+
+  return read_value;
+}
+
+/**
+  * @brief  Reads a single data over I2C1.
+  * @param  Addr: I2C address
+  * @param  Reg: Reg address
+  * @retval Data to be read
+  */
+uint8_t SENSOR_IO_Read_I2C1(uint8_t Address, uint8_t Register)
+{
+  uint8_t read_value = 0;
+
+  I2C1_ReadMultiple(&hI2c1Handler, Address, Register, I2C_MEMADD_SIZE_8BIT, (uint8_t*)&read_value, 1);
 
   return read_value;
 }

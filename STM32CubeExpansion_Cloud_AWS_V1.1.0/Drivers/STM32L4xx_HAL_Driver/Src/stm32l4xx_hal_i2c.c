@@ -1886,36 +1886,39 @@ HAL_StatusTypeDef HAL_I2C_Mem_Read(I2C_HandleTypeDef *hi2c, uint16_t DevAddress,
   uint32_t tickstart = 0U;
 
   /* Check the parameters */
+  //I believe this checks to see if the memory address is 8 bits or 16 bits. If neither, then 0.
   assert_param(IS_I2C_MEMADD_SIZE(MemAddSize));
 
-  if (hi2c->State == HAL_I2C_STATE_READY)
+  if (hi2c->State == HAL_I2C_STATE_READY)	//If the I2C peripheral is in the READY state
   {
-    if ((pData == NULL) || (Size == 0U))
+    if ((pData == NULL) || (Size == 0U))	//If valid data is not present
     {
-      return  HAL_ERROR;
-    }
+      return  HAL_ERROR;			//Yay! Error!
+    }//Otherwise:
 
     /* Process Locked */
+    //Lock the HAL
     __HAL_LOCK(hi2c);
 
     /* Init tickstart for timeout management*/
     tickstart = HAL_GetTick();
 
+    //Wait for the BUSY flag to be un-set
     if (I2C_WaitOnFlagUntilTimeout(hi2c, I2C_FLAG_BUSY, SET, I2C_TIMEOUT_BUSY, tickstart) != HAL_OK)
     {
       return HAL_TIMEOUT;
-    }
+    }	//if timeout, state so. If not timed out, then the BUSY flag was released in time.
 
-    hi2c->State     = HAL_I2C_STATE_BUSY_RX;
-    hi2c->Mode      = HAL_I2C_MODE_MEM;
-    hi2c->ErrorCode = HAL_I2C_ERROR_NONE;
+    hi2c->State     = HAL_I2C_STATE_BUSY_RX;	//I'm busy receiving
+    hi2c->Mode      = HAL_I2C_MODE_MEM;			//What is memory mode?
+    hi2c->ErrorCode = HAL_I2C_ERROR_NONE;		//No error
 
     /* Prepare transfer parameters */
     hi2c->pBuffPtr  = pData;
-    hi2c->XferCount = Size;
-    hi2c->XferISR   = NULL;
+    hi2c->XferCount = Size;	//How many bytes are being read in
+    hi2c->XferISR   = NULL;	//No ISR for this transfer
 
-    /* Send Slave Address and Memory Address */
+    /* Send Slave Address and Memory Address -- Check!*/
     if (I2C_RequestMemoryRead(hi2c, DevAddress, MemAddress, MemAddSize, Timeout, tickstart) != HAL_OK)
     {
       if (hi2c->ErrorCode == HAL_I2C_ERROR_AF)
@@ -1932,19 +1935,22 @@ HAL_StatusTypeDef HAL_I2C_Mem_Read(I2C_HandleTypeDef *hi2c, uint16_t DevAddress,
       }
     }
 
-    /* Send Slave Address */
+    /* Send Slave Address -- this will be the second time (Repeated Start to be sent)*/
     /* Set NBYTES to write and reload if hi2c->XferCount > MAX_NBYTE_SIZE and generate RESTART */
     if (hi2c->XferCount > MAX_NBYTE_SIZE)
     {
       hi2c->XferSize = MAX_NBYTE_SIZE;
+      //I believe that this sends the Repeated Start condition
       I2C_TransferConfig(hi2c, DevAddress, hi2c->XferSize, I2C_RELOAD_MODE, I2C_GENERATE_START_READ);
     }
     else
     {
+    	//I believe that this sends the Repeated Start condition
       hi2c->XferSize = hi2c->XferCount;
       I2C_TransferConfig(hi2c, DevAddress, hi2c->XferSize, I2C_AUTOEND_MODE, I2C_GENERATE_START_READ);
     }
 
+    //Read as many bytes as requested (Length)
     do
     {
       /* Wait until RXNE flag is set */
@@ -1953,7 +1959,7 @@ HAL_StatusTypeDef HAL_I2C_Mem_Read(I2C_HandleTypeDef *hi2c, uint16_t DevAddress,
         return HAL_TIMEOUT;
       }
 
-      /* Read data from RXDR */
+      /* Read data from RXDR --receive data register is not empty! Yay!*/
       (*hi2c->pBuffPtr++) = hi2c->Instance->RXDR;
       hi2c->XferSize--;
       hi2c->XferCount--;
@@ -3708,9 +3714,13 @@ static HAL_StatusTypeDef I2C_RequestMemoryWrite(I2C_HandleTypeDef *hi2c, uint16_
   */
 static HAL_StatusTypeDef I2C_RequestMemoryRead(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint16_t MemAddress, uint16_t MemAddSize, uint32_t Timeout, uint32_t Tickstart)
 {
+	//Set up the CR2 register to prepare for the read.
+	//I believe that this sends the device address to call the specified device.
   I2C_TransferConfig(hi2c, DevAddress, MemAddSize, I2C_SOFTEND_MODE, I2C_GENERATE_START_WRITE);
 
   /* Wait until TXIS flag is set */
+  //This waits until the current byte has been sent out over the I2C interface.
+  //When this flag is set, the next byte is ready to be written.
   if (I2C_WaitOnTXISFlagUntilTimeout(hi2c, Timeout, Tickstart) != HAL_OK)
   {
     if (hi2c->ErrorCode == HAL_I2C_ERROR_AF)
@@ -3724,9 +3734,11 @@ static HAL_StatusTypeDef I2C_RequestMemoryRead(I2C_HandleTypeDef *hi2c, uint16_t
   }
 
   /* If Memory address size is 8Bit */
+  //This is what it is for the light sensor
   if (MemAddSize == I2C_MEMADD_SIZE_8BIT)
   {
     /* Send Memory Address */
+	  //Sends the memory address? For the light sensor, it will probably be the next byte.
     hi2c->Instance->TXDR = I2C_MEM_ADD_LSB(MemAddress);
   }
   /* If Memory address size is 16Bit */
@@ -3753,6 +3765,7 @@ static HAL_StatusTypeDef I2C_RequestMemoryRead(I2C_HandleTypeDef *hi2c, uint16_t
   }
 
   /* Wait until TC flag is set */
+  //Transfer is complete
   if (I2C_WaitOnFlagUntilTimeout(hi2c, I2C_FLAG_TC, RESET, Timeout, Tickstart) != HAL_OK)
   {
     return HAL_TIMEOUT;
@@ -4473,23 +4486,23 @@ static void I2C_DMAAbort(DMA_HandleTypeDef *hdma)
   */
 static HAL_StatusTypeDef I2C_WaitOnFlagUntilTimeout(I2C_HandleTypeDef *hi2c, uint32_t Flag, FlagStatus Status, uint32_t Timeout, uint32_t Tickstart)
 {
-  while (__HAL_I2C_GET_FLAG(hi2c, Flag) == Status)
+  while (__HAL_I2C_GET_FLAG(hi2c, Flag) == Status)	//While the flag is equal to the status
   {
     /* Check for the Timeout */
     if (Timeout != HAL_MAX_DELAY)
     {
-      if ((Timeout == 0U) || ((HAL_GetTick() - Tickstart) > Timeout))
+      if ((Timeout == 0U) || ((HAL_GetTick() - Tickstart) > Timeout))	//If Timeout occurs
       {
-        hi2c->State = HAL_I2C_STATE_READY;
-        hi2c->Mode = HAL_I2C_MODE_NONE;
+        hi2c->State = HAL_I2C_STATE_READY;	//Free the I2C
+        hi2c->Mode = HAL_I2C_MODE_NONE;		//Set to NONE mode (not MASTER or SLAVE)
 
         /* Process Unlocked */
-        __HAL_UNLOCK(hi2c);
-        return HAL_TIMEOUT;
+        __HAL_UNLOCK(hi2c);					//Unlock after timeout
+        return HAL_TIMEOUT;					//Oh no, you timed out!
       }
     }
   }
-  return HAL_OK;
+  return HAL_OK;							//If you didn't time out, OK!
 }
 
 /**
