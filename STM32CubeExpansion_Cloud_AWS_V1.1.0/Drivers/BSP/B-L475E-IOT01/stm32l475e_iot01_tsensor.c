@@ -80,6 +80,7 @@ static TSENSOR_DrvTypeDef *tsensor_drv;
  #define APDS9301_READ_BYTE_CONTROL_REGISTER		0xc0
  #define APDS9301_WRITE_BYTE_CONTROL_REGISTER		0xc0
  #define APDS9301_ACTIVATE							0x03
+ #define APDS9301_DEACTIVATE						0x00
 
 #define LIGHT_SENSOR_ADDRESS			0x39		//Floating
 
@@ -141,7 +142,6 @@ float BSP_TSENSOR_ReadTemp(void)
  */
 void init_light_sensor(uint16_t address){
 	uint8_t tmp;
-	address = 40;	//For testing only
 
 	  /* Read control register */
 //	  tmp = SENSOR_IO_Read_I2C1(address, APDS9301_READ_BYTE_CONTROL_REGISTER);
@@ -157,12 +157,17 @@ void init_light_sensor(uint16_t address){
 	  /* Activate the device */
 	  //tmp |= HTS221_PD_MASK;
 
-	  while(1){
+	  //while(1){
 	   /*Apply settings to control register: activate light sensor*/
 		  SENSOR_IO_I2C1_Write((address << 1), APDS9301_WRITE_BYTE_CONTROL_REGISTER, APDS9301_ACTIVATE);
-	  }
+	  //}
 	  /*Check to make sure that the write was successful*/
-	  tmp = SENSOR_IO_Read_I2C1(address, APDS9301_READ_BYTE_CONTROL_REGISTER);
+	  tmp = SENSOR_IO_Read_I2C1((address << 1), APDS9301_READ_BYTE_CONTROL_REGISTER);
+
+	  SENSOR_IO_I2C1_Write((address << 1), APDS9301_WRITE_BYTE_CONTROL_REGISTER, APDS9301_DEACTIVATE);
+
+	  tmp = SENSOR_IO_Read_I2C1((address << 1), APDS9301_READ_BYTE_CONTROL_REGISTER);
+
 }
 
 float read_light_sensor_data(uint16_t address){
