@@ -76,8 +76,7 @@ Application/Common/cloud.o: \
  C:/Users/Ashton/Desktop/IoT\ Projects/IoTWifi/STM32CubeExpansion_Cloud_AWS_V1.1.0/Projects/Common/Shared/Inc/cloud.h \
  C:/Users/Ashton/Desktop/IoT\ Projects/IoTWifi/STM32CubeExpansion_Cloud_AWS_V1.1.0/Projects/Common/Shared/Inc/sensors_data.h \
  C:/Users/Ashton/Desktop/IoT\ Projects/IoTWifi/STM32CubeExpansion_Cloud_AWS_V1.1.0/Projects/Common/Shared/Inc/heap.h \
- C:/Users/Ashton/Desktop/IoT\ Projects/IoTWifi/STM32CubeExpansion_Cloud_AWS_V1.1.0/Projects/Common/Shared/Inc/rfu.h \
- C:/Users/Ashton/Desktop/IoT\ Projects/IoTWifi/STM32CubeExpansion_Cloud_AWS_V1.1.0/Projects/Common/Shared/Inc/lightsensor.h
+ C:/Users/Ashton/Desktop/IoT\ Projects/IoTWifi/STM32CubeExpansion_Cloud_AWS_V1.1.0/Projects/Common/Shared/Inc/rfu.h
 
 C:/Users/Ashton/Desktop/IoT\ Projects/IoTWifi/STM32CubeExpansion_Cloud_AWS_V1.1.0/Projects/B-L475E-IOT01/Applications/Cloud/AWS/Inc/main.h:
 
@@ -232,5 +231,3 @@ C:/Users/Ashton/Desktop/IoT\ Projects/IoTWifi/STM32CubeExpansion_Cloud_AWS_V1.1.
 C:/Users/Ashton/Desktop/IoT\ Projects/IoTWifi/STM32CubeExpansion_Cloud_AWS_V1.1.0/Projects/Common/Shared/Inc/heap.h:
 
 C:/Users/Ashton/Desktop/IoT\ Projects/IoTWifi/STM32CubeExpansion_Cloud_AWS_V1.1.0/Projects/Common/Shared/Inc/rfu.h:
-
-C:/Users/Ashton/Desktop/IoT\ Projects/IoTWifi/STM32CubeExpansion_Cloud_AWS_V1.1.0/Projects/Common/Shared/Inc/lightsensor.h:

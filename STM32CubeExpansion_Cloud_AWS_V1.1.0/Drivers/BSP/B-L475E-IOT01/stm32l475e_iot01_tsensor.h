@@ -53,11 +53,16 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32l475e_iot01.h"
+//#include "lightsensor.h"
 #ifdef USE_LPS22HB_TEMP
 #include "../Components/lps22hb/lps22hb.h"
 #else /* USE_HTS221_TEMP */
 #include "../Components/hts221/hts221.h"
 #endif
+
+ void init_light_sensor(uint16_t address);	//Initializes the light sensor.
+
+ float read_light_sensor_data(uint16_t address);	//Reads data from the light sensor.
 
 /** @addtogroup BSP
   * @{

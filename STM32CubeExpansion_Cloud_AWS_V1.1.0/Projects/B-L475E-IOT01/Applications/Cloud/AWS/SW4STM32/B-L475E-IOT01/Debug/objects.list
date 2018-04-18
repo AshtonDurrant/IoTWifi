@@ -9,7 +9,6 @@
 "Application/Common/heap.o"
 "Application/Common/http_util.o"
 "Application/Common/iot_flash_config.o"
-"Application/Common/lightsensor.o"
 "Application/Common/mbedtls_net.o"
 "Application/Common/mbedtls_patch.o"
 "Application/Common/net.o"

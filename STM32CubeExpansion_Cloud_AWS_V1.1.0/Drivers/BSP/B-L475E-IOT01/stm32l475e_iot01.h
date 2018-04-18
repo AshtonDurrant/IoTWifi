@@ -180,7 +180,6 @@ typedef enum
 /* User can use this section to tailor I2Cx instance used and associated resources */
 /* Definition for I2Cx resources */
 #define DISCOVERY_I2Cx                             I2C2
-#define MY_I2C1							  		   I2C1
 #define DISCOVERY_I2Cx_CLK_ENABLE()                __HAL_RCC_I2C2_CLK_ENABLE()
 #define DISCOVERY_I2Cx_CLK_DISABLE()               __HAL_RCC_I2C2_CLK_DISABLE()   
 #define DISCOVERY_DMAx_CLK_ENABLE()                __HAL_RCC_DMA1_CLK_ENABLE()
@@ -195,6 +194,7 @@ typedef enum
 #define DISCOVERY_I2Cx_SDA_PIN                     GPIO_PIN_11
 
 /*Added by Ashton Durrant on 4-11-2018*/
+#define MY_I2C1							  		   I2C1
 #define I2C1_SCL_PIN							   GPIO_PIN_8
 #define I2C1_SDA_PIN							   GPIO_PIN_9
 #define I2C1_GPIO_PORT							   GPIOB
@@ -205,6 +205,10 @@ typedef enum
 #define I2C1_RELEASE_RESET()					  __HAL_RCC_I2C1_RELEASE_RESET()
 #define I2C1_EV_IRQn							  I2C1_EV_IRQn
 #define I2C1_ER_IRQn							  I2C1_ER_IRQn
+
+#ifndef I2C1_TIMING
+#define I2C1_TIMING									0xb042c3c7
+#endif	/* I2C1_TIMING */
 /*End additions*/
 
 #define DISCOVERY_I2Cx_SCL_SDA_GPIO_PORT           GPIOB

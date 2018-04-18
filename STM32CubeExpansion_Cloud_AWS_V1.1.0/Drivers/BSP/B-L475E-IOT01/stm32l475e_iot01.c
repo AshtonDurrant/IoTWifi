@@ -453,12 +453,12 @@ static void I2C1_MspInit(I2C_HandleTypeDef *i2c_handler)
 
   /* Enable and set I2C1 Event Interrupt to a lower priority */
   //Just as a warning, setting this to have the same preemptability and priority as I2C2 may be an issue
-  HAL_NVIC_SetPriority(I2C1_EV_IRQn, 0x0F, 0);
+  HAL_NVIC_SetPriority(I2C1_EV_IRQn, 0x0E, 1);
   HAL_NVIC_EnableIRQ(I2C1_EV_IRQn);
 
   /* Enable and set I2C1 Error Interrupt to a lower priority */
   //Just as a warning, setting this to have the same preemptability and priority as I2C2 may be an issue
-  HAL_NVIC_SetPriority(I2C1_ER_IRQn, 0x0F, 0);
+  HAL_NVIC_SetPriority(I2C1_ER_IRQn, 0x0E, 1);
   HAL_NVIC_EnableIRQ(I2C1_ER_IRQn);
 }	//End of initialization for I2C1
 
@@ -532,7 +532,7 @@ static void I2C1_Init(I2C_HandleTypeDef *i2c_handler)
 {
   /* I2C configuration */
   i2c_handler->Instance              = MY_I2C1;	// Ignore the error. It's fine. It finds it.
-  i2c_handler->Init.Timing           = DISCOVERY_I2Cx_TIMING;
+  i2c_handler->Init.Timing           = I2C1_TIMING;
   i2c_handler->Init.OwnAddress1      = 0;
   i2c_handler->Init.AddressingMode   = I2C_ADDRESSINGMODE_7BIT;
   i2c_handler->Init.DualAddressMode  = I2C_DUALADDRESS_DISABLE;
@@ -639,6 +639,31 @@ static HAL_StatusTypeDef I2Cx_WriteMultiple(I2C_HandleTypeDef *i2c_handler, uint
 }
 
 /**
+  * @brief  Writes a value in a register of the device through BUS in using DMA mode.
+  * @param  i2c_handler : I2C handler
+  * @param  Addr: Device address on BUS Bus.
+  * @param  Reg: The target register address to write
+  * @param  MemAddress: memory address
+  * @param  Buffer: The target register value to be written
+  * @param  Length: buffer size to be written
+  * @retval HAL status
+  */
+static HAL_StatusTypeDef I2C1_WriteMultiple(uint8_t Addr, uint16_t Reg, uint16_t MemAddress, uint8_t *Buffer, uint16_t Length)
+{
+  HAL_StatusTypeDef status = HAL_OK;
+
+  status = HAL_I2C_Mem_Write(&hI2c1Handler, Addr, (uint16_t)Reg, MemAddress, Buffer, Length, 1000);
+
+  /* Check the communication status */
+ // if(status != HAL_OK)
+  //{
+    /* Re-Initiaize the I2C Bus */
+    //I2Cx_Error(&hI2c1Handler, Addr);
+  //}
+  return status;
+}
+
+/**
   * @brief  Checks if target device is ready for communication. 
   * @note   This function is used with Memory devices
   * @param  i2c_handler : I2C handler
@@ -738,7 +763,7 @@ uint8_t SENSOR_IO_Read_I2C1(uint8_t Address, uint8_t Register)
 {
   uint8_t read_value = 0;
 
-  I2C1_ReadMultiple(&hI2c1Handler, Address, Register, I2C_MEMADD_SIZE_8BIT, (uint8_t*)&read_value, 1);
+  I2C1_ReadMultiple(Address, Register, I2C_MEMADD_SIZE_8BIT, (uint8_t*)&read_value, 1);
 
   return read_value;
 }

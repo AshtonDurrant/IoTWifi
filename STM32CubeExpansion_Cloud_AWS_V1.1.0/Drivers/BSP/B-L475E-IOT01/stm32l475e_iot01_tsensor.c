@@ -62,6 +62,33 @@
   * @{
   */ 
 static TSENSOR_DrvTypeDef *tsensor_drv;  
+
+//Defines for ADPS-9301 control and data registers
+ #define APDS9301_CONTROL 				0x0
+ #define APDS9301_TIMING 				0x1
+ #define APDS9301_THRESHLOWLOW 			0x2
+ #define APDS9301_THRESHLOWHIGH 		0x3
+ #define APDS9301_THRESHHIGHLOW 		0x4
+ #define APDS9301_THRESHHIGHHIGH 		0x5
+ #define APDS9301_INTERRUPT 			0x6
+ #define APDS9301_ID 					0xa
+ #define APDS9301_DATA0LOW 				0xc
+ #define APDS9301_DATA0HIGH 			0xd
+ #define APDS9301_DATA1LOW 				0xe
+ #define APDS9301_DATA1HIGH 			0xf
+
+ #define APDS9301_READ_BYTE_CONTROL_REGISTER		0xc0
+ #define APDS9301_WRITE_BYTE_CONTROL_REGISTER		0xc0
+ #define APDS9301_ACTIVATE							0x03
+
+#define LIGHT_SENSOR_ADDRESS			0x39		//Floating
+
+ typedef struct
+ {
+ 	void	(*Init)(uint16_t);	//Initialization function (16-bit value is address)
+ 	float	(*ReadData)(uint16_t);	//Reads data. 16-bit value is address of sensor.
+ }LSensor_DriverTypeDef;
+
 /**
   * @}
   */
@@ -85,10 +112,14 @@ uint32_t BSP_TSENSOR_Init(void)
 #endif
 
   /* Low level init */
-  SENSOR_IO_Init();
+  SENSOR_IO_Init();	//Initializes I2C2 and I2C1
 
   /* TSENSOR Init */   
   tsensor_drv->Init(TSENSOR_I2C_ADDRESS, NULL);
+  init_light_sensor(LIGHT_SENSOR_ADDRESS);
+
+  /*Light sensor Init*/
+
 
   ret = TSENSOR_OK;
   
@@ -102,6 +133,41 @@ uint32_t BSP_TSENSOR_Init(void)
 float BSP_TSENSOR_ReadTemp(void)
 { 
   return tsensor_drv->ReadTemp(TSENSOR_I2C_ADDRESS);
+}
+
+/*This function initializes the APDS-9301 ambient light sensor. This is modeled heavily
+ * after HTS221_T_Init.
+ * @param address:	I2C device address of the light sensor
+ */
+void init_light_sensor(uint16_t address){
+	uint8_t tmp;
+	address = 40;	//For testing only
+
+	  /* Read control register */
+//	  tmp = SENSOR_IO_Read_I2C1(address, APDS9301_READ_BYTE_CONTROL_REGISTER);
+
+	  /* Enable BDU */
+	  //tmp &= ~HTS221_BDU_MASK;
+	  //tmp |= (1 << HTS221_BDU_BIT);
+
+	  /* Set default ODR */
+	  //tmp &= ~HTS221_ODR_MASK;
+	  //tmp |= (uint8_t)0x01; /* Set ODR to 1Hz */
+
+	  /* Activate the device */
+	  //tmp |= HTS221_PD_MASK;
+
+	  while(1){
+	   /*Apply settings to control register: activate light sensor*/
+		  SENSOR_IO_I2C1_Write((address << 1), APDS9301_WRITE_BYTE_CONTROL_REGISTER, APDS9301_ACTIVATE);
+	  }
+	  /*Check to make sure that the write was successful*/
+	  tmp = SENSOR_IO_Read_I2C1(address, APDS9301_READ_BYTE_CONTROL_REGISTER);
+}
+
+float read_light_sensor_data(uint16_t address){
+
+	return 0.0;
 }
 
 /**
