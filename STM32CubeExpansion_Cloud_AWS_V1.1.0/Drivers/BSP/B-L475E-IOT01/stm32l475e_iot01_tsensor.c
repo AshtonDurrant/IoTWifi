@@ -45,6 +45,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32l475e_iot01_tsensor.h"
+#include <math.h>	//Needed the pow() function in determining the lux value
 
 /** @addtogroup BSP
   * @{
@@ -185,20 +186,51 @@ float read_light_sensor_data(void){
 	uint16_t channel_0_raw_value;	//Channel 0 raw data value
 	uint16_t channel_1_raw_value;	//Channel 1 raw data value
 
+	//Read Channel 0
 	low_byte = SENSOR_IO_Read_I2C1((address << 1), APDS9301_READ_CH0_LOW_BYTE);
 	high_byte = SENSOR_IO_Read_I2C1((address << 1), APDS9301_READ_CH0_HIGH_BYTE);
 	channel_0_raw_value = (high_byte << 8) + low_byte;	//Channel 0 read
 
+	//Read Channel 1
 	low_byte = SENSOR_IO_Read_I2C1((address << 1), APDS9301_READ_CH1_LOW_BYTE);
 	high_byte = SENSOR_IO_Read_I2C1((address << 1), APDS9301_READ_CH1_HIGH_BYTE);
 	channel_1_raw_value = (high_byte << 8) + low_byte;	//Channel 1 read
 
+	//Calculate lux value from raw data.
 	lux = determine_lux_value(channel_0_raw_value, channel_1_raw_value);
-	return (float) channel_0_raw_value;
+
+	return lux;
 }
 
+/*This function is based off of the empirical formula for calculating lux, given in the
+ * APDS9301 datasheet. This function takes in the raw data read from Channels 0 and 1 on the
+ * APDS9301 and calculates the lux detected by that sensor. The lux value is calculated from the
+ * raw data and is returned from this function.
+ */
 float determine_lux_value(uint16_t channel0, uint16_t channel1){
+	float decision = (float)channel1 / channel0;	//Hopefully this cast avoids int division
+	float lux_value;
 
+	if(decision <= 0.50){	// CH1/CH0 <= 0.50
+		lux_value = (0.0304 * channel0) - (0.062 * channel0 * pow(((float)channel1/channel0), 1.4));
+	}
+
+	else if(decision > 0.50 && decision <= 0.61){	// 0.50 < CH1/CH0 <= 0.61
+		lux_value = (0.0224 * channel0) - (0.031 * channel1);
+	}
+
+	else if(decision > 0.61 && decision <= 0.80){	// 0.61 < CH1/CH0 <= 0.80
+		lux_value = (0.0128 * channel0) - (0.0153 * channel1);
+	}
+
+	else if(decision > 0.80 && decision <= 1.30){	// 0.80 < CH1/CH0 <= 1.30
+		lux_value = (0.00146 * channel1) - (0.00112 * channel1);
+	}
+	else{	// CH1/CH0 > 1.30
+		lux_value = 0.0;
+	}
+
+	return lux_value;
 }
 
 /**

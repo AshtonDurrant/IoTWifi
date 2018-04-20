@@ -190,8 +190,8 @@ int PrepareMqttPayload(char * PayloadBuffer, int PayloadSize, char * deviceID)
   else
   {
 	  snprintfreturn = snprintf( Buff, BuffSize, "{\n \"state\": {\n  \"reported\": {\n"
-           "   \"temperature\": %.2f,\n   \"humidity\": %.2f,\n   \"pressure\": %.2f\n"
-           "	\"Lux\": %.2f,\n  }\n }\n}",
+           "   \"temperature\": %.2f,\n   \"humidity\": %.2f,\n   \"pressure\": %.2f,\n"
+           "   \"Lux\": %.2f\n  }\n }\n}",
            TEMPERATURE_Value, HUMIDITY_Value, PRESSURE_Value, LUX_Value);
   }
  #endif
