@@ -62,7 +62,7 @@
 
  void init_light_sensor(uint16_t address);	//Initializes the light sensor.
 
- float read_light_sensor_data(uint16_t address);	//Reads data from the light sensor.
+ float read_light_sensor_data(void);	//Reads data from the light sensor.
 
 /** @addtogroup BSP
   * @{

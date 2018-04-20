@@ -75,6 +75,7 @@ static int16_t  ACC_Value[3];
 static float    GYR_Value[3];
 static int16_t  MAG_Value[3];
 static uint16_t PROXIMITY_Value;
+static float LUX_Value;
 
 /* Private function prototypes -----------------------------------------------*/
 /* Functions Definition ------------------------------------------------------*/
@@ -152,6 +153,7 @@ int PrepareMqttPayload(char * PayloadBuffer, int PayloadSize, char * deviceID)
   TEMPERATURE_Value = BSP_TSENSOR_ReadTemp();
   HUMIDITY_Value = BSP_HSENSOR_ReadHumidity();
   PRESSURE_Value = BSP_PSENSOR_ReadPressure();
+  LUX_Value = read_light_sensor_data();
   //PROXIMITY_Value = VL53L0X_PROXIMITY_GetDistance();
   //BSP_ACCELERO_AccGetXYZ(ACC_Value);
   //BSP_GYRO_GetXYZ(GYR_Value);
@@ -189,8 +191,8 @@ int PrepareMqttPayload(char * PayloadBuffer, int PayloadSize, char * deviceID)
   {
 	  snprintfreturn = snprintf( Buff, BuffSize, "{\n \"state\": {\n  \"reported\": {\n"
            "   \"temperature\": %.2f,\n   \"humidity\": %.2f,\n   \"pressure\": %.2f\n"
-           "  }\n }\n}",
-           TEMPERATURE_Value, HUMIDITY_Value, PRESSURE_Value);
+           "	\"Lux\": %.2f,\n  }\n }\n}",
+           TEMPERATURE_Value, HUMIDITY_Value, PRESSURE_Value, LUX_Value);
   }
  #endif
   /* Check total size to be less than buffer size

@@ -64,25 +64,23 @@
 static TSENSOR_DrvTypeDef *tsensor_drv;  
 
 //Defines for ADPS-9301 control and data registers
- #define APDS9301_CONTROL 				0x0
- #define APDS9301_TIMING 				0x1
- #define APDS9301_THRESHLOWLOW 			0x2
- #define APDS9301_THRESHLOWHIGH 		0x3
- #define APDS9301_THRESHHIGHLOW 		0x4
- #define APDS9301_THRESHHIGHHIGH 		0x5
- #define APDS9301_INTERRUPT 			0x6
- #define APDS9301_ID 					0xa
- #define APDS9301_DATA0LOW 				0xc
- #define APDS9301_DATA0HIGH 			0xd
- #define APDS9301_DATA1LOW 				0xe
- #define APDS9301_DATA1HIGH 			0xf
 
- #define APDS9301_READ_BYTE_CONTROL_REGISTER		0xc0
- #define APDS9301_WRITE_BYTE_CONTROL_REGISTER		0xc0
- #define APDS9301_ACTIVATE							0x03
- #define APDS9301_DEACTIVATE						0x00
+#define APDS9301_READ_BYTE_CONTROL_REGISTER			0xc0
+#define APDS9301_WRITE_BYTE_CONTROL_REGISTER		0xc0
+#define APDS9301_ACTIVATE							0x03
+#define APDS9301_DEACTIVATE							0x00
+#define APDS9301_READ_ID_REGISTER					0xca
+
+#define APDS9301_READ_CH0_LOW_BYTE					0xcc
+#define APDS9301_READ_CH0_HIGH_BYTE					0xcd
+#define APDS9301_READ_CH1_LOW_BYTE					0xce
+#define APDS9301_READ_CH1_HIGH_BYTE					0xcf
 
 #define LIGHT_SENSOR_ADDRESS			0x39		//Floating
+
+static float lux;
+
+static float determine_lux_value(uint16_t channel0, uint16_t channel1);
 
  typedef struct
  {
@@ -142,6 +140,8 @@ float BSP_TSENSOR_ReadTemp(void)
  */
 void init_light_sensor(uint16_t address){
 	uint8_t tmp;
+	uint8_t tmp2;
+	uint16_t total;
 
 	  /* Read control register */
 //	  tmp = SENSOR_IO_Read_I2C1(address, APDS9301_READ_BYTE_CONTROL_REGISTER);
@@ -154,25 +154,51 @@ void init_light_sensor(uint16_t address){
 	  //tmp &= ~HTS221_ODR_MASK;
 	  //tmp |= (uint8_t)0x01; /* Set ODR to 1Hz */
 
-	  /* Activate the device */
-	  //tmp |= HTS221_PD_MASK;
+	  /* Activate the light sensor */
+	  SENSOR_IO_I2C1_Write((address << 1), APDS9301_WRITE_BYTE_CONTROL_REGISTER, APDS9301_ACTIVATE);
 
-	  //while(1){
-	   /*Apply settings to control register: activate light sensor*/
-		  SENSOR_IO_I2C1_Write((address << 1), APDS9301_WRITE_BYTE_CONTROL_REGISTER, APDS9301_ACTIVATE);
-	  //}
-	  /*Check to make sure that the write was successful*/
+	  /*Read channel 0, first time*/
+	 // tmp = SENSOR_IO_Read_I2C1((address << 1), APDS9301_READ_CH0_LOW_BYTE);
+	 // tmp2 = SENSOR_IO_Read_I2C1((address << 1), APDS9301_READ_CH0_HIGH_BYTE);
+	  //total = (tmp2 << 8) + tmp;	//Total value
+	  /*Read channel 0, second time (covered by my hand)*/
+	  //tmp = SENSOR_IO_Read_I2C1((address << 1), APDS9301_READ_CH0_LOW_BYTE);
+	  //tmp2 = SENSOR_IO_Read_I2C1((address << 1), APDS9301_READ_CH0_HIGH_BYTE);
+	  //total = (tmp2 << 8) + tmp;	//Total value
+
+	  /*Test code for reading registers and checking to make sure that I2C1 works correctly*/
+	  /*SENSOR_IO_I2C1_Write((address << 1), APDS9301_WRITE_BYTE_CONTROL_REGISTER, APDS9301_ACTIVATE);
+
 	  tmp = SENSOR_IO_Read_I2C1((address << 1), APDS9301_READ_BYTE_CONTROL_REGISTER);
 
 	  SENSOR_IO_I2C1_Write((address << 1), APDS9301_WRITE_BYTE_CONTROL_REGISTER, APDS9301_DEACTIVATE);
 
 	  tmp = SENSOR_IO_Read_I2C1((address << 1), APDS9301_READ_BYTE_CONTROL_REGISTER);
 
+	  tmp = SENSOR_IO_Read_I2C1((address << 1), APDS9301_READ_ID_REGISTER);*/
 }
 
-float read_light_sensor_data(uint16_t address){
+float read_light_sensor_data(void){
+	uint16_t address = LIGHT_SENSOR_ADDRESS;
+	uint8_t low_byte;				//Used to hold the low byte of read-in data
+	uint8_t high_byte;				//Used to hold the high byte of read-in data
+	uint16_t channel_0_raw_value;	//Channel 0 raw data value
+	uint16_t channel_1_raw_value;	//Channel 1 raw data value
 
-	return 0.0;
+	low_byte = SENSOR_IO_Read_I2C1((address << 1), APDS9301_READ_CH0_LOW_BYTE);
+	high_byte = SENSOR_IO_Read_I2C1((address << 1), APDS9301_READ_CH0_HIGH_BYTE);
+	channel_0_raw_value = (high_byte << 8) + low_byte;	//Channel 0 read
+
+	low_byte = SENSOR_IO_Read_I2C1((address << 1), APDS9301_READ_CH1_LOW_BYTE);
+	high_byte = SENSOR_IO_Read_I2C1((address << 1), APDS9301_READ_CH1_HIGH_BYTE);
+	channel_1_raw_value = (high_byte << 8) + low_byte;	//Channel 1 read
+
+	lux = determine_lux_value(channel_0_raw_value, channel_1_raw_value);
+	return (float) channel_0_raw_value;
+}
+
+float determine_lux_value(uint16_t channel0, uint16_t channel1){
+
 }
 
 /**
