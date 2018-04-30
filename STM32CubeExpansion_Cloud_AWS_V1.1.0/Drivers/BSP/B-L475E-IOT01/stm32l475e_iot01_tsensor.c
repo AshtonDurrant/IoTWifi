@@ -140,43 +140,9 @@ float BSP_TSENSOR_ReadTemp(void)
  * @param address:	I2C device address of the light sensor
  */
 void init_light_sensor(uint16_t address){
-	uint8_t tmp;
-	uint8_t tmp2;
-	uint16_t total;
 
-	  /* Read control register */
-//	  tmp = SENSOR_IO_Read_I2C1(address, APDS9301_READ_BYTE_CONTROL_REGISTER);
-
-	  /* Enable BDU */
-	  //tmp &= ~HTS221_BDU_MASK;
-	  //tmp |= (1 << HTS221_BDU_BIT);
-
-	  /* Set default ODR */
-	  //tmp &= ~HTS221_ODR_MASK;
-	  //tmp |= (uint8_t)0x01; /* Set ODR to 1Hz */
-
-	  /* Activate the light sensor */
-	  SENSOR_IO_I2C1_Write((address << 1), APDS9301_WRITE_BYTE_CONTROL_REGISTER, APDS9301_ACTIVATE);
-
-	  /*Read channel 0, first time*/
-	 // tmp = SENSOR_IO_Read_I2C1((address << 1), APDS9301_READ_CH0_LOW_BYTE);
-	 // tmp2 = SENSOR_IO_Read_I2C1((address << 1), APDS9301_READ_CH0_HIGH_BYTE);
-	  //total = (tmp2 << 8) + tmp;	//Total value
-	  /*Read channel 0, second time (covered by my hand)*/
-	  //tmp = SENSOR_IO_Read_I2C1((address << 1), APDS9301_READ_CH0_LOW_BYTE);
-	  //tmp2 = SENSOR_IO_Read_I2C1((address << 1), APDS9301_READ_CH0_HIGH_BYTE);
-	  //total = (tmp2 << 8) + tmp;	//Total value
-
-	  /*Test code for reading registers and checking to make sure that I2C1 works correctly*/
-	  /*SENSOR_IO_I2C1_Write((address << 1), APDS9301_WRITE_BYTE_CONTROL_REGISTER, APDS9301_ACTIVATE);
-
-	  tmp = SENSOR_IO_Read_I2C1((address << 1), APDS9301_READ_BYTE_CONTROL_REGISTER);
-
-	  SENSOR_IO_I2C1_Write((address << 1), APDS9301_WRITE_BYTE_CONTROL_REGISTER, APDS9301_DEACTIVATE);
-
-	  tmp = SENSOR_IO_Read_I2C1((address << 1), APDS9301_READ_BYTE_CONTROL_REGISTER);
-
-	  tmp = SENSOR_IO_Read_I2C1((address << 1), APDS9301_READ_ID_REGISTER);*/
+	/* Activate the light sensor */
+	SENSOR_IO_I2C1_Write((address << 1), APDS9301_WRITE_BYTE_CONTROL_REGISTER, APDS9301_ACTIVATE);
 }
 
 float read_light_sensor_data(void){
