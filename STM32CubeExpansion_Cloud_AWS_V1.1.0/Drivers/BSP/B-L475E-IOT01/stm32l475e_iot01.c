@@ -594,7 +594,16 @@ static HAL_StatusTypeDef I2Cx_ReadMultiple(I2C_HandleTypeDef *i2c_handler, uint8
   }
   return status;
 }
-
+/*This function reads multiple bytes from a slave device over the I2C1 module. This function is
+ * modeled after I2Cx_ReadMultiple. The parameters are defined as follows:
+ *
+ * @param  Addr: I2C address of the device
+ * @param  Reg: Reg address (this is used as the command code sent to the APDS-9301 in this project).
+ * @param  MemAddress: memory address: (8-bit or 16-bit?)
+ * @param  Buffer: Pointer to data buffer
+ * @param  Length: Length of the data
+ * @retval HAL status
+ */
 static HAL_StatusTypeDef I2C1_ReadMultiple(uint8_t Addr, uint16_t Reg, uint16_t MemAddress, uint8_t *Buffer, uint16_t Length)
 {
 	HAL_StatusTypeDef status = HAL_OK;
@@ -638,7 +647,7 @@ static HAL_StatusTypeDef I2Cx_WriteMultiple(I2C_HandleTypeDef *i2c_handler, uint
   return status;
 }
 
-/**
+/**This function is modeled after I2Cx_WriteMultiple, but uses I2C1 instead of I2C2.
   * @brief  Writes a value in a register of the device through BUS in using DMA mode.
   * @param  i2c_handler : I2C handler
   * @param  Addr: Device address on BUS Bus.
@@ -717,7 +726,7 @@ void SENSOR_IO_Init(void)
 void SENSOR_IO_DeInit(void)
 {
   I2Cx_DeInit(&hI2cHandler);
-  I2C1_DeInit(&hI2c1Handler);
+  I2C1_DeInit(&hI2c1Handler);	//Also added by Ashton Durrant
 }
 
 /**

@@ -145,6 +145,10 @@ void init_light_sensor(uint16_t address){
 	SENSOR_IO_I2C1_Write((address << 1), APDS9301_WRITE_BYTE_CONTROL_REGISTER, APDS9301_ACTIVATE);
 }
 
+/* This function uses the I2C1 module to read both data registers of both ADC channels (4 bytes read
+ * total) on the APDS-9301.The values from each channel are calculated. This function returns the
+ * sensor reading in lux.
+ */
 float read_light_sensor_data(void){
 	uint16_t address = LIGHT_SENSOR_ADDRESS;
 	uint8_t low_byte;				//Used to hold the low byte of read-in data
